@@ -26,7 +26,7 @@ $items: 12;
 
 @each $key, $value in $breakpoints {
   @for $i from 1 through $items {
-    .grid__item--#{$key}-span-#{$i} {
+    .gitem-#{$key}-#{$i} {
       flex: 0 0 100%;
     }
   }
@@ -34,7 +34,7 @@ $items: 12;
 
 @each $key, $value in $breakpoints {
   @for $i from 1 through $items {
-    .grid__item--#{$key}-span-#{$i} {
+    .gitem-#{$key}-#{$i} {
       @include break($key) {
         flex: 0 0 #{$i / $items * 100%}
       }
