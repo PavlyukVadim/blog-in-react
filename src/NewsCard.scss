@@ -6,6 +6,9 @@
 	height: 220px;
 	overflow: hidden;
 	position: relative;
+	@media screen and (max-width: 768px) {
+    	height: 400px;
+	}
 
 	&:hover {
 		cursor: pointer;
@@ -28,21 +31,44 @@
 	    height: 99px;
 	    max-height: 120px;
 	    object-fit: cover;
+	    @media screen and (max-width: 768px) {
+	    	height: 200px;
+    		max-height: 220px;
+  		}
 	}
 
-	.cart-title {
-    		font-family: 'Arsenal', sans-serif;
-    		font-size: 24px;  
-    		padding: 10px;
-    		color: #444;
+	.mob-cart-title, .cart-title {
+		font-family: 'Arsenal', sans-serif;
+		font-size: 24px;  
+		padding: 10px;
+		color: #444;
+		font-weight: 500;
 
 		&:hover {
 			color: #04a49c;
 		}
 	}
+
+	.mob-cart-title{
+		padding: 30px 10px 20px 10px;
+		@media screen and (min-width: 768px) {
+	    	display: none;
+  		}
+	}
 	
+	.cart-title{
+		@media screen and (max-width: 768px) {
+	    	display: none;
+  		}
+	}
+
 	.short-cart-desc{
+		font-family: 'Arsenal', sans-serif;
 		text-overflow: ellipsis;
+		padding: 10px;
+		@media screen and (max-width: 768px) {
+	    	margin: 10px 0;
+  		}
 	}
     
 }
