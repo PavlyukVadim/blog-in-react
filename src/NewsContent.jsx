@@ -52,12 +52,9 @@ class NewsContent extends Component {
   	}
 
 
-
-
-
 	render() {
 		let news = this.news.map((news) => {
-			return <NewsCard info={news} />
+			return <NewsCard key={news.id} info={news} />
 		});
 
 		return (

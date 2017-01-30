@@ -1,0 +1,22 @@
+main {
+	
+	display: -webkit-flex; /* Safari */
+ 	display: flex;
+
+	-webkit-flex-direction: row; /* Safari */
+ 	flex-direction: row;
+
+	.sidebar{
+		width: 22%;
+		@media screen and (max-width: 768px) {
+	    	display: none;
+  		}	
+	}
+
+	.grid {
+		width: 78%;
+		@media screen and (max-width: 768px) {
+	    	width: 100%;
+  		}
+	}
+}
