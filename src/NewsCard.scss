@@ -3,7 +3,7 @@
 	text-align: center;
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 	transition: box-shadow .5s;
-	height: 220px;
+	height: 270px;
 	overflow: hidden;
 	position: relative;
 	@media screen and (max-width: 768px) {
@@ -13,7 +13,16 @@
 	&:hover {
 		cursor: pointer;
 		box-shadow: 0 8px 8px rgba(0, 0, 0, 0.24), 0 0 8px rgba(0, 0, 0, 0.12);
-	}
+			.bg-wrap{
+				opacity: 1;
+			}
+			.stats {
+				bottom: 3px;
+			}
+			.mob-cart-title, .cart-title {
+				color: #04a49c;
+			}
+	}	
 
 	&:after {
         content: '';
@@ -26,15 +35,47 @@
 	    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), #fff);
 	}
 
-	img { 
-	    width: 100%;
-	    height: 99px;
-	    max-height: 120px;
-	    object-fit: cover;
-	    @media screen and (max-width: 768px) {
-	    	height: 200px;
-    		max-height: 220px;
-  		}
+	.stats {
+		position: absolute;
+		width: 100%;
+		height: 20px;
+		bottom: -20px;
+		color: #fff;
+		transition: bottom .2s;
+		time {
+			position: absolute;
+			right: 15px;
+		}
+		.views {
+			position: absolute;
+			left: 15px;
+			.n-views {
+				margin-left: 5px;
+			}	
+		}
+	}
+	
+	.img-part{
+		position: relative;
+		img { 
+		    width: 100%;
+		    height: 150px;
+		    max-height: 170px;
+		    object-fit: cover;
+		    @media screen and (max-width: 768px) {
+		    	height: 200px;
+	    		max-height: 220px;
+	  		}
+		}
+	}
+
+	.bg-wrap{
+		position: absolute;
+		width: 100%;
+		height: 98%;
+		transition: all .5s;
+		opacity: 0;
+		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));	
 	}
 
 	.mob-cart-title, .cart-title {
@@ -51,6 +92,7 @@
 
 	.mob-cart-title{
 		padding: 30px 10px 20px 10px;
+		font-size: 28px;
 		@media screen and (min-width: 768px) {
 	    	display: none;
   		}
