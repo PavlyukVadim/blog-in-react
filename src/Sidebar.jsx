@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Sidebar.scss';
 
+import Filters from './Filters.jsx';
+
 class Sidebar extends Component {
 	
 	constructor(props) {
@@ -11,7 +13,7 @@ class Sidebar extends Component {
   	render() {
 	    return (
 		    <div className="sidebar">
-		    	
+		    	<Filters/>
 		    </div>
 	    );
 	}
