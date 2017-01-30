@@ -3,11 +3,6 @@ import './NewsCard.scss';
 
 class NewsCard extends Component {
 	
-	constructor(props) {
-	    super(props);
-  	}
-
-
   	render() {
 	    return (
 		    <div className="card-wrapper gitem-lg-3 gitem-md-4 gitem-sm-6">

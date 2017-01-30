@@ -5,11 +5,6 @@ import Filters from './Filters.jsx';
 
 class Sidebar extends Component {
 	
-	constructor(props) {
-	    super(props);
-  	}
-
-
   	render() {
 	    return (
 		    <div className="sidebar">

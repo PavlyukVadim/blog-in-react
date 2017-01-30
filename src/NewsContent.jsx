@@ -60,8 +60,7 @@ class NewsContent extends Component {
     }
 
     sortByAlphabet(a, b) {
-
-        return a.title.localeCompare(b.title);;
+        return a.title.localeCompare(b.title);
     }
 
 
@@ -71,6 +70,7 @@ class NewsContent extends Component {
             case "date" : { this.news = this.news.sort(this.sortByDate); break; }
             case "popular" : { this.news = this.news.sort(this.sortByPopular); break; }
             case "alphabet" : { this.news = this.news.sort(this.sortByAlphabet); break; }
+            default : this.news = this.news.sort(this.sortByDate);
         } 
 		let news = this.news.map((news) => {
 			return <NewsCard key={news.id} info={news} />
