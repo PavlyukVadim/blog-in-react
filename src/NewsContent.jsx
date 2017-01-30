@@ -42,9 +42,6 @@ var NEWS = [
 ];
 
 
-
-
-
 class NewsContent extends Component {
 	constructor(props) {
 	    super(props);
@@ -52,8 +49,29 @@ class NewsContent extends Component {
 	    this.state = { sortBy: this.props.sortBy };
   	}
 
+    sortByDate(a, b) {
+        var d1 = Date.parse(a.date.split('.').reverse().join('-'));
+        var d2 = Date.parse(b.date.split('.').reverse().join('-'));
+        return d2 - d1;
+    }
+
+    sortByPopular(a, b) {
+        return b.views - a.views;
+    }
+
+    sortByAlphabet(a, b) {
+
+        return a.title.localeCompare(b.title);;
+    }
+
+
 	render() {
-		console.log(this.props.getTypeSort());
+		let sortBy = this.props.getTypeSort();
+        switch(sortBy) {
+            case "date" : { this.news = this.news.sort(this.sortByDate); break; }
+            case "popular" : { this.news = this.news.sort(this.sortByPopular); break; }
+            case "alphabet" : { this.news = this.news.sort(this.sortByAlphabet); break; }
+        } 
 		let news = this.news.map((news) => {
 			return <NewsCard key={news.id} info={news} />
 		});
