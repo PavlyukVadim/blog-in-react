@@ -13,7 +13,7 @@ class Sidebar extends Component {
   	render() {
 	    return (
 		    <div className="sidebar">
-		    	<Filters/>
+		    	<Filters setFilter={this.props.setFilter}/>
 		    </div>
 	    );
 	}

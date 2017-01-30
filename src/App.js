@@ -9,18 +9,36 @@ import Footer from './Footer.jsx';
 
 
 class App extends Component {
-  render() {
-    return (
-        <div className="App">
-        	<Header/>
-        	<main>
-        		<NewsContent/>
-        		<Sidebar/>
-        	</main>
-        	<Footer/>
-      	</div>
-    );
-  }
+
+
+    constructor(props) {
+        super(props);
+        this.state = {sortBy: "date"};
+        this.handleFilter = this.handleFilter.bind(this);
+        this.getTypeSort = this.getTypeSort.bind(this);
+    }
+
+    handleFilter(value) {
+        this.setState({sortBy: value});
+    }
+
+    getTypeSort() {
+        return this.state.sortBy;
+    }
+
+
+    render() {
+        return (
+            <div className="App">
+            	<Header/>
+            	<main>
+            		<NewsContent getTypeSort={this.getTypeSort}/>
+            		<Sidebar setFilter={this.handleFilter}/>
+            	</main>
+            	<Footer/>
+          	</div>
+        );
+    }
 }
 
 export default App;

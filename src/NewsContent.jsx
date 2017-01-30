@@ -49,10 +49,11 @@ class NewsContent extends Component {
 	constructor(props) {
 	    super(props);
 	    this.news = NEWS;
+	    this.state = { sortBy: this.props.sortBy };
   	}
 
-
 	render() {
+		console.log(this.props.getTypeSort());
 		let news = this.news.map((news) => {
 			return <NewsCard key={news.id} info={news} />
 		});
