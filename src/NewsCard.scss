@@ -3,13 +3,13 @@
 	text-align: center;
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 	transition: box-shadow .5s;
-	height: 270px;
+	/*height: 270px;*/
 	overflow: hidden;
 	position: relative;
 	background-color: #FFF;
 
 	@media screen and (max-width: 768px) {
-    	height: 400px;
+    	/*height: 400px;*/
 	}
 
 	&:hover {
@@ -25,17 +25,6 @@
 				color: #04a49c;
 			}
 	}	
-
-	&:after {
-        content: '';
-	    position: absolute;
-	    z-index: 1;
-	    bottom: 0;
-	    left: 0;
-	    height: 29px;
-	    width: 100%;
-	    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), #fff);
-	}
 
 	.stats {
 		position: absolute;
@@ -110,9 +99,21 @@
 		font-family: 'Arsenal', sans-serif;
 		text-overflow: ellipsis;
 		padding: 10px;
+		position: relative;
 		@media screen and (max-width: 768px) {
 	    	margin: 10px 0;
   		}
+
+  		&:after {
+		    content: '';
+		    position: absolute;
+		    z-index: 1;
+		    bottom: 0;
+		    left: 0;
+		    height: 23px;
+		    width: 100%;
+		    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), #fff);
+		}
 	}
     
 }
