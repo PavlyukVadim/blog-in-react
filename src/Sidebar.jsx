@@ -29,11 +29,17 @@ class Sidebar extends Component {
 	constructor(props) {
 	    super(props);
 	    this.openMenu = this.openMenu.bind(this);
+	    this.closeMenu = this.closeMenu.bind(this);
   	}
 
   	openMenu() {
   		this.buttonMenu.classList.toggle("active");
   		this.sideBar.classList.toggle("mob-sidebar");
+  	}
+
+  	closeMenu() {
+  		this.buttonMenu.classList.remove("active");
+  		this.sideBar.classList.remove("mob-sidebar");
   	}
 
   	render() {
@@ -45,7 +51,8 @@ class Sidebar extends Component {
 						onClick={this.openMenu} >
 					<span>toggle menu</span>
 				</button>
-		    	<Filters setFilter={this.props.setFilter}/>
+		    	<Filters setFilter={this.props.setFilter}
+		    			 closeMobMenu={this.closeMenu}/>
 		    </div>
 	    );
 	}

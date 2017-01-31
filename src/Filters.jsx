@@ -9,6 +9,7 @@ class Filters extends Component {
   	}
 
 	handleChange(e) {
+		this.props.closeMobMenu();
 		this.props.setFilter(e.target.id);
   	}
 

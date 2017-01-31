@@ -1,4 +1,10 @@
 header {
 	height: 96px;
-	background-color: pink;
+	background-color: #ff3264;
+	@media screen and(max-width: 768px){
+		position: fixed;
+		width: 100%;
+		top: 0;
+		z-index: 2;
+	}
 }
