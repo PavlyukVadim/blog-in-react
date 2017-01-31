@@ -1,3 +1,110 @@
-.sidebar{
+.sidebar {
 	background-color: rgb(33,33,33);
+	
+	.cmn-toggle-switch {
+		display: block;
+		position: relative;
+		overflow: hidden;
+		margin: 0;
+		padding: 0;
+		width: 108px;
+		height: 96px;
+		font-size: 0;
+		text-indent: -9999px;
+		appearance: none;
+		box-shadow: none;
+		border-radius: none;
+		border: none;
+		cursor: pointer;
+		transition: background 0.3s;
+		
+		&:focus {
+			outline: none;
+		}
+
+		span {
+			display: block;
+			position: absolute;
+			top: 45px;
+			left: 18px;
+			right: 18px;
+			height: 6px;
+			background: white;
+
+			&::before,
+			&::after {
+				position: absolute;
+				display: block;
+				left: 0;
+				width: 100%;
+				height: 6px;
+				background-color: #fff;
+				content: "";
+			}
+
+			&::before {
+			    top: -27px;
+			}
+
+			&::after {
+			    bottom: -27px;
+			}
+
+		}
+
+	}
+
+
+
+}
+
+.cmn-toggle-switch__htx {
+	background-color: #ff3264;
+
+	span {
+    	transition: background 0 0.3s;
+		
+		&::before,
+		&::after {
+			transition-duration: 0.3s, 0.3s;
+			transition-delay: 0.3s, 0;
+		}
+
+		&::before { 
+			transition-property: top, transform;
+		}
+
+		&::after {
+			transition-property: bottom, transform;
+		}
+
+	}
+
+}
+
+
+
+
+/* active state, i.e. menu open */
+.cmn-toggle-switch__htx.active {
+	background-color: #cb0032;
+}
+
+.cmn-toggle-switch__htx.active span {
+	background: none;
+}
+
+.cmn-toggle-switch__htx.active span::before {
+	top: 0;
+	transform: rotate(45deg);
+}
+
+.cmn-toggle-switch__htx.active span::after {
+	bottom: 0;
+	transform: rotate(-45deg);
+}
+
+.cmn-toggle-switch__htx.active span::before,
+.cmn-toggle-switch__htx.active span::after {
+	transition-delay: 0, 0.3s;
 }
