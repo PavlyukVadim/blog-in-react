@@ -32,13 +32,14 @@ class Sidebar extends Component {
   	}
 
   	openMenu() {
-  		console.log(this.buttonMenu);
   		this.buttonMenu.classList.toggle("active");
+  		this.sideBar.classList.toggle("mob-sidebar");
   	}
 
   	render() {
 	    return (
-		    <div className="sidebar">
+		    <div className="sidebar"
+				 ref={(sidebar) => {this.sideBar = sidebar;}}>
 				<button className="cmn-toggle-switch cmn-toggle-switch__htx"
 						ref={(button) => {this.buttonMenu = button;}} 
 						onClick={this.openMenu} >

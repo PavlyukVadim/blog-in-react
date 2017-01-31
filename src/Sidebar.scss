@@ -1,10 +1,12 @@
 .sidebar {
 	background-color: rgb(33,33,33);
 	
+	
 	.cmn-toggle-switch {
 		display: block;
 		position: relative;
 		overflow: hidden;
+		right: 0;
 		margin: 0;
 		padding: 0;
 		width: 108px;
@@ -17,6 +19,9 @@
 		border: none;
 		cursor: pointer;
 		transition: background 0.3s;
+		@media screen and(min-width: 768px) {
+			display: none;
+		}
 		
 		&:focus {
 			outline: none;
@@ -53,9 +58,15 @@
 		}
 
 	}
+}
 
+.mob-sidebar {
+	position: relative;
+	width: 400px;
 
-
+	.filters {
+		display: block;
+	}
 }
 
 .cmn-toggle-switch__htx {
@@ -87,7 +98,7 @@
 
 /* active state, i.e. menu open */
 .cmn-toggle-switch__htx.active {
-	background-color: #cb0032;
+	background-color: rgb(33,33,33);
 }
 
 .cmn-toggle-switch__htx.active span {

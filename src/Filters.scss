@@ -1,6 +1,10 @@
 @import url('http://fonts.googleapis.com/css?family=Lato');
 
 .filters{
+	@media screen and(max-width: 768px) {
+		display: none;
+	}
+
 	ul{
 		list-style: none;
 		height: 100%;
