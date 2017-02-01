@@ -18,7 +18,7 @@ class Filters extends Component {
 		    <div className="filters">
 				<ul>
 				  <li>
-				    <input type="radio" id="date" name="selector" onChange={this.handleChange}/>
+				    <input type="radio" id="date" name="selector" onChange={this.handleChange} defaultChecked/>
 				    <label htmlFor="date">По новизне</label>
 				    <div className="check"></div>
 				  </li>
