@@ -6,6 +6,7 @@ import Header from './Header';
 import NewsContent from './NewsContent.jsx';
 import Sidebar from './Sidebar.jsx';
 import Footer from './Footer.jsx';
+import NewsContainer from './../containers/NewsContainer';
 
 
 class App extends Component {
@@ -15,7 +16,6 @@ class App extends Component {
         super(props);
         this.state = {sortBy: "date"};
         this.handleFilter = this.handleFilter.bind(this);
-        this.getTypeSort = this.getTypeSort.bind(this);
     }
 
     handleFilter(value) {
@@ -32,7 +32,7 @@ class App extends Component {
             <div className="App">
             	<Header/>
             	<main>
-            		<NewsContent getTypeSort={this.getTypeSort}/>
+            		<NewsContainer />
             		<Sidebar setFilter={this.handleFilter}/>
             	</main>
             	<Footer />
