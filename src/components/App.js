@@ -35,7 +35,7 @@ class App extends Component {
             		<NewsContent getTypeSort={this.getTypeSort}/>
             		<Sidebar setFilter={this.handleFilter}/>
             	</main>
-            	<Footer/>
+            	<Footer />
           	</div>
         );
     }

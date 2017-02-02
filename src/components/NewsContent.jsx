@@ -65,6 +65,8 @@ class NewsContent extends Component {
 
 
 	render() {
+        console.log("State", this.props.store);
+        console.log("pr", this.props);
 		let sortBy = this.props.getTypeSort();
         switch(sortBy) {
             case "date" : { this.news = this.news.sort(this.sortByDate); break; }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Sidebar.scss';
 
-import Filters from './Filters.jsx';
+import FilterNews from './../containers/FilterNews';
 
 
 
@@ -23,6 +23,9 @@ class Sidebar extends Component {
   		this.sideBar.classList.remove("mob-sidebar");
   	}
 
+	/*<Filters setFilter={this.props.setFilter}
+		    			 closeMobMenu={this.closeMenu}/>*/
+
   	render() {
 	    return (
 		    <div className="sidebar"
@@ -32,8 +35,7 @@ class Sidebar extends Component {
 						onClick={this.openMenu} >
 					<span>toggle menu</span>
 				</button>
-		    	<Filters setFilter={this.props.setFilter}
-		    			 closeMobMenu={this.closeMenu}/>
+				<FilterNews />
 		    </div>
 	    );
 	}
