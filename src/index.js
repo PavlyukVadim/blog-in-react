@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-import App from './components/App';
+import App from './components/App.jsx';
 import blogApp from './reducers';
 
 import './reset.css';

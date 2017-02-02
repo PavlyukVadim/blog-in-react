@@ -23,8 +23,6 @@ class Sidebar extends Component {
   		this.sideBar.classList.remove("mob-sidebar");
   	}
 
-	/*<Filters setFilter={this.props.setFilter}
-		    			 closeMobMenu={this.closeMenu}/>*/
 
   	render() {
 	    return (
