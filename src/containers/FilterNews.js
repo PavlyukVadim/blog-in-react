@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { setDateFilter, setPopularFilter} from '../actions';
+import { setDateFilter, setPopularFilter, setAlphabetFilter } from '../actions';
 
 
 import Filters from '../components/Filters';
@@ -17,6 +17,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         setDate: () => {
             dispatch(setDateFilter());
+        },
+        setAlphabet: () => {
+            dispatch(setAlphabetFilter());
         }
     }
 }

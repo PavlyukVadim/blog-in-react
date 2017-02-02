@@ -6,7 +6,7 @@ class Filters extends Component {
 
 
   	render() {
-  		console.log(this.props.state);
+  		/*console.log(this.props.state);*/
 	    return (
 		    <div className="filters">
 				<ul>
@@ -23,7 +23,7 @@ class Filters extends Component {
 				  </li>
 				  
 				  <li>
-				    <input type="radio" id="alphabet" name="selector"/>
+				    <input type="radio" id="alphabet" name="selector" onChange={this.props.setAlphabet}/>
 				    <label htmlFor="alphabet">По алфавиту</label>
 				    <div className="check"><div className="inside"></div></div>
 				  </li>

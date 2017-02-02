@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import './App.scss';
 
 import Header from './Header';
-import NewsContent from './NewsContent.jsx';
 import Sidebar from './Sidebar.jsx';
 import Footer from './Footer.jsx';
 import NewsContainer from './../containers/NewsContainer';
