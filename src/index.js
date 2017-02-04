@@ -7,11 +7,13 @@ import { createStore } from 'redux';
 import App from './components/App.jsx';
 import blogApp from './reducers';
 
+import { selectSource } from './actions/newsAPIactions.js';
+
 import './reset.css';
 
 let store = createStore(blogApp);
 
-
+console.log(selectSource('time'));
 ReactDOM.render(
   	<Provider store={store}>
   		<App />
