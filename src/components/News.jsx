@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
+import NewsContainer from './../containers/NewsContainer';
 
 class News extends Component {
 
     render() {
         return (
-            <div className="News">
-            	<h1>News</h1>
+            <div className='news'>
+            	<NewsContainer/>
           	</div>
         );
     }

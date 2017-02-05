@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Sidebar.scss';
 
+import FilterBlog from './../containers/FilterBlog';
 import FilterNews from './../containers/FilterNews';
 
 
@@ -33,7 +34,8 @@ class Sidebar extends Component {
 						onClick={this.openMenu} >
 					<span>toggle menu</span>
 				</button>
-				<FilterNews />
+				{ this.props.path === '/' && <FilterBlog /> }
+				{ this.props.path === '/news' && <FilterNews /> }
 		    </div>
 	    );
 	}

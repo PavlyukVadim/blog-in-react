@@ -61,6 +61,7 @@ export function fetchPostsIfNeeded(source) {
   // a cached value is already available.
 
 	return (dispatch, getState) => {
+		dispatch(selectSource(source));
 		if (shouldFetchPosts(getState(), source)) {
 			return dispatch(fetchPosts(source));
 		} else {

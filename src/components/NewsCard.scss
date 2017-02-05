@@ -46,7 +46,7 @@
 		}
 	}
 	
-	.img-part{
+	.img-part {
 		position: relative;
 		img { 
 		    width: 100%;
@@ -60,7 +60,7 @@
 		}
 	}
 
-	.bg-wrap{
+	.bg-wrap {
 		position: absolute;
 		width: 100%;
 		height: 98%;
@@ -81,7 +81,7 @@
 		}
 	}
 
-	.mob-cart-title{
+	.mob-cart-title {
 		padding: 30px 10px 20px 10px;
 		font-size: 28px;
 		@media screen and (min-width: 768px) {
@@ -89,13 +89,13 @@
   		}
 	}
 	
-	.cart-title{
+	.cart-title {
 		@media screen and (max-width: 768px) {
 	    	display: none;
   		}
 	}
 
-	.short-cart-desc{
+	.short-cart-desc {
 		font-family: 'Arsenal', sans-serif;
 		text-overflow: ellipsis;
 		padding: 10px;
@@ -116,4 +116,8 @@
 		}
 	}
     
+}
+
+a {
+	text-decoration: none;
 }

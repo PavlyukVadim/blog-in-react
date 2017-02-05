@@ -28,8 +28,6 @@ let store = createStore(
     	loggerMiddleware // neat middleware that logs actions
   	)
 );
-
-store.dispatch(fetchPostsIfNeeded('the-guardian-uk'))
 store.dispatch(fetchPostsIfNeeded('time'))
 
 

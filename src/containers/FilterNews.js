@@ -1,9 +1,7 @@
 import { connect } from 'react-redux';
-import { setDateFilter, setPopularFilter, setAlphabetFilter } from '../actions';
 
-
-import Filters from '../components/Filters';
-
+import { fetchPostsIfNeeded } from '../actions/newsAPIactions.js';
+import NewFilters from '../components/NewFilters';
 
 
 const mapStateToProps = (state) => {
@@ -12,14 +10,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setPopular: () => {
-            dispatch(setPopularFilter());
-        },
-        setDate: () => {
-            dispatch(setDateFilter());
-        },
-        setAlphabet: () => {
-            dispatch(setAlphabetFilter());
+        setNews: (e) => {
+            let source = e.target.id;
+            dispatch(fetchPostsIfNeeded(source));
         }
     }
 }
@@ -28,6 +21,6 @@ const mapDispatchToProps = (dispatch) => {
 const FilterNews = connect(
     mapStateToProps,
     mapDispatchToProps
-)(Filters)
+)(NewFilters)
 
 export default FilterNews;
