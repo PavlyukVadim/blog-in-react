@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './Filters.scss';
+import './Filters.css';
 
 class BlogFilters extends Component {
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Sidebar.scss';
+import './Sidebar.css';
 
 import FilterBlog from './../containers/FilterBlog';
 import FilterNews from './../containers/FilterNews';

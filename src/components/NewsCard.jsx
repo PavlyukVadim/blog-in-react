@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './NewsCard.scss';
+import './NewsCard.css';
 
 class NewsCard extends Component {
 	
