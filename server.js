@@ -5,8 +5,11 @@ const express = require('express'),
 
 var app = express();
 
+require('./app/routes')(app);
 
 app.use(morgan('dev'));
+
+//app.use('/posts', postRouter);
 
 app.use(express.static('./build'));
 
