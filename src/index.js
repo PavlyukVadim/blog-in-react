@@ -37,7 +37,7 @@ ReactDOM.render(
   		<Router history={ browserHistory }>
       		<Route path='/' component={App}>
       			<IndexRoute component={Blog} />
-            <Route path='post/:postId' component={NewsPageContainer} />
+            <Route path='posts/:postId' component={NewsPageContainer} />
 	        	<Route path='news' component={News} />
         	</Route> 
       		<Route path='admin' component={Admin} />
