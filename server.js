@@ -1,7 +1,9 @@
 const express = require('express'),
 	morgan = require('morgan'),
 	path = require('path'),
-	config = require('./config');
+	config = require('./config'),
+	cors = require('cors');
+
 
 var app = express();
 
