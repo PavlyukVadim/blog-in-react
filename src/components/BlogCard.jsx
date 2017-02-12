@@ -25,7 +25,7 @@ class BlogCard extends Component {
 							</p>
 						</div>
 			      		<p className="cart-title">{ this.props.info.title }</p>
-			      		<p className="short-cart-desc">{ this.props.info.describe }</p>
+			      		<p className="short-cart-desc">{ this.props.info.shortDescribe }</p>
 		      		</Link>
 		      	</div>
 	      	</div>

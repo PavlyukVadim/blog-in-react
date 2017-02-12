@@ -13,18 +13,20 @@ class NewsPageContainer extends Component {
 		});
 
 
-		return fetch(`http://localhost:9000/posts/${id}`,{ method: 'GET',
-               mode: 'cors',
-               cache: 'default' })		
-      	.then(response => response.json())
+		return fetch(`http://localhost:9000/posts/${id}`,{
+              method: 'GET',
+              headers: myHeaders,
+              mode: 'cors',
+              cache: 'default' })		
+      	   .then(response => response.json())
 	};
 
 
     render() {
         return (
-        	<div>
-    			<NewsPage postId={this.props.params.postId} getPostById={this.getPostById}/>
-  			</div>
+        	 <div>
+    			   <NewsPage postId={this.props.params.postId} getPostById={this.getPostById}/>
+  			   </div>
         );
     }
 }

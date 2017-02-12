@@ -11,8 +11,7 @@ module.exports = function(app) {
 
 	postRouter.route('/')
 	.all(function(req,res,next) {
-	    res.writeHead(200, { 'Content-Type': 'text/plain' });
-	    next();
+	    res.writeHead(200, { 'Content-Type': 'application/json' })
 	})
 
 	.get(function(req,res,next){

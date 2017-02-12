@@ -9,13 +9,12 @@ import './App.css';
 class App extends Component {
 
     render() {
-        console.log()
         return (
             <div className="App">
             	<Header/>
             	<main>
                     { this.props.children }
-                    <Sidebar path={this.props.location.pathname}/>
+                    { this.props.location.pathname.indexOf('posts') === -1 && <Sidebar path={this.props.location.pathname}/>}
             	</main>
             	<Footer/>
           	</div>
