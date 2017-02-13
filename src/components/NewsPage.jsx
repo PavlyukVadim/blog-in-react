@@ -17,7 +17,7 @@ class NewsPage extends Component {
 
     render() {
         return (
-             <div className="NewsPage">
+            <div className="NewsPage">
 		      	<div>
 					<p className="title">{ this.state.title }</p>
 					<div>

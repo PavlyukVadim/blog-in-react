@@ -8,14 +8,14 @@ import createLogger from 'redux-logger';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import App from './components/App.jsx';
-import Admin from './components/Admin.jsx';
 import Blog from './components/Blog.jsx';
 import News from './components/News.jsx';
 import NewsPageContainer from './containers/NewsPageContainer';
+import AdminContainer from './containers/AdminContainer';
 
 
 import blogApp from './reducers';
-import { fetchPostsIfNeeded } from './actions/newsAPIactions.js';
+import { fetchPostsIfNeeded } from './actions/newsAPIactions';
 
 import './reset.css';
 
@@ -39,8 +39,8 @@ ReactDOM.render(
       			<IndexRoute component={Blog} />
             <Route path='posts/:postId' component={NewsPageContainer} />
 	        	<Route path='news' component={News} />
+            <Route path='admin' component={AdminContainer} />
         	</Route> 
-      		<Route path='admin' component={Admin} />
     	</Router>
   	</Provider>,
   document.getElementById('root')
