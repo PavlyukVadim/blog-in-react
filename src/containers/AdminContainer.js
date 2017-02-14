@@ -21,6 +21,21 @@ class AdminContainer extends Component {
                 mode: 'cors',
                 cache: 'default' })   
               .then(response => response.json())
+    },
+
+    deletePostById : (id) => {
+      var myHeaders = new Headers({
+          "Content-Type": "json/plain",
+          "X-Custom-Header": "ProcessThisImmediately",
+      });
+
+
+      return fetch(`http://localhost:9000/posts/${id}`,{
+                method: 'DELETE',
+                headers: myHeaders,
+                mode: 'cors',
+                cache: 'default' })   
+              .then(response => response.json())
     }
 
 
