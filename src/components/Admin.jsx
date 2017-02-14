@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
+
+import './Admin.scss';
 
 
 
 class PostElement extends Component {
 	render() {
 		return (
-			<div className="Admin">
+			<div className="admin-posts">
 		      	<div>
 					<p className="title">{ this.props.post.title }</p>
 					<div>
 						<div className="bg-wrap"></div>
-						<img src={ this.props.post.image } alt="news"></img>
 						<p className="stats">
 							<span className="views">
 								<i className="fa fa-eye"></i>
@@ -18,6 +20,11 @@ class PostElement extends Component {
 							</span>	
 							<time dateTime={ this.props.post.date }>{ this.props.post.date }</time>
 						</p>
+						<ul className="control-panel">
+							<li><Link to="/">Delete</Link></li>
+							<li><Link to="/">Edit</Link></li>
+							<li><Link to="/">View</Link></li>
+						</ul>
 					</div>
 		      	</div>
           	</div>
