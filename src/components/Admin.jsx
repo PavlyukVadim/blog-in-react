@@ -7,6 +7,7 @@ import './Admin.scss';
 
 class PostElement extends Component {
 	render() {
+
 		return (
 			<div className="admin-posts">
 		      	<div>
@@ -21,9 +22,12 @@ class PostElement extends Component {
 							<time dateTime={ this.props.post.date }>{ this.props.post.date }</time>
 						</p>
 						<ul className="control-panel">
-							<li><Link to="/">Delete</Link></li>
+							<li className="delete" 
+								onClick={() => this.props.deletePostById(this.props.post.id)}>
+								<Link>Delete</Link>
+							</li>
 							<li><Link to="/">Edit</Link></li>
-							<li><Link to="/">View</Link></li>
+							<li><Link to={"/posts/" + this.props.post.id}>View</Link></li>
 						</ul>
 					</div>
 		      	</div>
@@ -39,11 +43,17 @@ class Admin extends Component {
 	constructor(props) {
     	super(props);
     	this.state = {};
+    	this.deletePostById = this.deletePostById.bind(this);
   	}
 
 	componentDidMount() {
 		this.props.APIAccess.getPosts()
     		.then(json => this.setState( { posts: json.reverse() } ) );
+	}
+
+	deletePostById(id) {
+		this.props.APIAccess.deletePostById(id)
+			.then(json => this.setState( { posts: json.reverse() } ) );	
 	}
 	
 
@@ -52,7 +62,11 @@ class Admin extends Component {
 		let postElements = "" 
 		if ( this.state.posts ) {
 			postElements = this.state.posts.map((post) =>
-				<PostElement key={post.id} post={post} />
+				<PostElement 
+					key={post.id}
+					post={post}
+					deletePostById={this.deletePostById}
+				/>
 			);
 		}
 		
