@@ -73,6 +73,7 @@ class Admin extends Component {
         return (
         	<div>
             	{postElements}
+            	<Link to={"/admin/edit"} className="button-add">+</Link>
             </div> 
         );
     }
