@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import FormData from 'form-data'
 
-import Admin from '../components/Admin.jsx';
 
 
 class AdminContainer extends Component {
@@ -18,6 +18,21 @@ class AdminContainer extends Component {
       return fetch(`http://localhost:9000/posts`,{
                 method: 'GET',
                 headers: myHeaders,
+                mode: 'cors',
+                cache: 'default' })   
+              .then(response => response.json())
+    },
+
+    createPost : (data) => {
+      var myHeaders = new Headers({
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+      });
+
+      return fetch(`http://localhost:9000/posts`,{
+                method: 'POST', 
+                headers: myHeaders,
+                body: JSON.stringify(data),
                 mode: 'cors',
                 cache: 'default' })   
               .then(response => response.json())
@@ -60,11 +75,10 @@ class AdminContainer extends Component {
   
 
 
-
     render() {
         return (
-        	 <div>
-    			   <Admin APIAccess={this.APIAccess}/>
+        	 <div className="wrapper">
+              { React.cloneElement(this.props.children, { APIAccess: this.APIAccess }) }
   			   </div>
         );
     }
