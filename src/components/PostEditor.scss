@@ -1,0 +1,66 @@
+$edit-buttons-margin: 30px;
+
+.post-editor{
+	position: relative;
+	width: 70%;
+	margin: 0 auto;
+		
+	@media screen and (max-width: 768px) {
+    	width: 90%;
+	}
+
+	form{
+		input[type="text"]{
+			width: 98%;
+			margin: 50px 0 0 0;
+			font-size: 25px;
+			padding: 3px 10px;
+			display: block;
+		}
+
+		.edit-area{
+			
+			position: relative;
+
+
+			.editable{
+				min-height: 150px;
+				max-height: 600px;
+				overflow-y: auto;
+				background-color: #FFF;
+				margin: 30px 0 50px 0;
+				border: 1px solid #bbb;
+				border-radius: 2px;
+				padding: 10px + $edit-buttons-margin 20px;
+
+				&:focus {
+				    outline: 0px solid transparent;
+				}
+			}
+
+			.edit-toolbar{
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+			    border-bottom: 1px solid #ddd;
+		        background: #f4f4f4;
+	            background-image: -webkit-linear-gradient(bottom, #eee 50%, #fafafa 100%);
+
+				button{
+					height: $edit-buttons-margin;
+					&:hover{
+						cursor: pointer;
+					}					
+				}
+			}
+
+			input[type="submit"]{
+				position: absolute;
+				bottom: -40px;
+				right: 0;
+				font-size: 20px;
+			}
+		}
+	}
+}

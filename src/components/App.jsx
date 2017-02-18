@@ -14,7 +14,10 @@ class App extends Component {
             	<Header/>
             	<main>
                     { this.props.children }
-                    { this.props.location.pathname.indexOf('posts') === -1 && this.props.location.pathname.indexOf('admin') === -1 && <Sidebar path={this.props.location.pathname}/>}
+                    { this.props.location.pathname.indexOf('posts') === -1 &&
+                      this.props.location.pathname.indexOf('admin') === -1 &&
+                      this.props.location.pathname.indexOf('edit') === -1 &&
+                       <Sidebar path={this.props.location.pathname}/>}
             	</main>
             	<Footer/>
           	</div>
