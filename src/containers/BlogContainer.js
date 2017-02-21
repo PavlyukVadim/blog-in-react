@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import NewsContent from '../components/NewsContent';
 
 
-const sortByDate = (a, b) =>  a - b;
+const sortByDate = (a, b) =>  b.date - a.date;
 
 const sortByPopular = (a, b)  =>  b.views - a.views;
 

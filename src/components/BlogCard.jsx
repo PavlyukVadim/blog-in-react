@@ -7,6 +7,8 @@ class BlogCard extends Component {
 	
   	render() {
 
+  		this.date = new Date(this.props.info.date);
+
 	    return (
 		    <div className="card-wrapper gitem-lg-3 gitem-md-4 gitem-sm-6">
 		      	<div className="news-card">
@@ -21,7 +23,10 @@ class BlogCard extends Component {
 									<span className="n-views">{ this.props.info.views }</span>
 								</span>	
 								
-								<time dateTime={ this.props.info.date }>{ this.props.info.date }</time>
+								<time dateTime={ this.props.info.date }>
+									{ ("0" + this.date.getDate()).slice(-2) + "/" + ("0"+(this.date.getMonth()+1)).slice(-2) + "/" +
+    this.date.getFullYear() + " " }
+								</time>
 							</p>
 						</div>
 			      		<p className="cart-title">{ this.props.info.title }</p>

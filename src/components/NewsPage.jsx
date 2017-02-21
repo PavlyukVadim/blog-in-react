@@ -16,6 +16,9 @@ class NewsPage extends Component {
 
 
     render() {
+		
+		this.date = new Date(this.state.date);
+        
         return (
             <div className="NewsPage">
 		      	<div>
@@ -28,7 +31,10 @@ class NewsPage extends Component {
 								<i className="fa fa-eye"></i>
 								<span className="n-views">{ this.state.views }</span>
 							</span>	
-							<time dateTime={ this.state.date }>{ this.state.date }</time>
+							<time dateTime={ this.state.date }>
+								{ ("0" + this.date.getDate()).slice(-2) + "/" + ("0"+(this.date.getMonth()+1)).slice(-2) + "/" +
+    this.date.getFullYear() + " " }
+    						</time>
 						</p>
 					</div>
 		      		<p className="news-desc" dangerouslySetInnerHTML={{__html: this.state.describe}}></p>
