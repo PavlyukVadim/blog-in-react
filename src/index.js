@@ -18,6 +18,7 @@ import AdminContainer from './containers/AdminContainer';
 
 import blogApp from './reducers';
 import { fetchPostsIfNeeded } from './actions/newsAPIactions';
+import { fetchBlogPostsIfNeeded } from './actions/blogAPIactions';
 
 import './reset.css';
 
@@ -31,7 +32,9 @@ let store = createStore(
     	loggerMiddleware // neat middleware that logs actions
   	)
 );
-store.dispatch(fetchPostsIfNeeded('time'))
+
+store.dispatch(fetchPostsIfNeeded('time'));
+store.dispatch(fetchBlogPostsIfNeeded());
 
 
 ReactDOM.render(
