@@ -15,11 +15,14 @@ class PostEditor extends Component {
 		e.preventDefault();
 
 		let postParams = {
-			title: this.titleInput.value
+			title: this.titleInput.value,
+	        shortDescribe: 'Предположим, у нас есть два класса:... ',
+	        image: 'https://tproger2.azureedge.net/wp-content/uploads/2017/01/i2NKb_croper_ru.jpeg',
 		};
 
 		//var data = new FormData();
 		this.props.APIAccess.createPost(postParams)
+			.then(() => this.props.updateBlogPosts()); 
 	}
 
 

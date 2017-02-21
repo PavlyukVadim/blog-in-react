@@ -48,17 +48,17 @@ class Admin extends Component {
 
 	componentDidMount() {
 		this.props.APIAccess.getPosts()
-    		.then(json => this.setState( { posts: json.reverse() } ) );
+    		.then(json => this.setState( { posts: json.reverse() } ))
 	}
 
 	deletePostById(id) {
 		this.props.APIAccess.deletePostById(id)
-			.then(json => this.setState( { posts: json.reverse() } ) );	
+			.then(json => this.setState( { posts: json.reverse() } ) )
+			.then(() => this.props.updateBlogPosts()); 
 	}
 	
 
     render() {
-		console.log(this.state);
 		let postElements = "" 
 		if ( this.state.posts ) {
 			postElements = this.state.posts.map((post) =>

@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import FormData from 'form-data'
 
-
+import { fetchBlogPosts } from '../actions/blogAPIactions';
 
 class AdminContainer extends Component {
 
-	
+
+  constructor(props) {
+    super(props);
+    this.updateBlogPosts = this.updateBlogPosts.bind(this);
+  }
+  	
   APIAccess = {
     
     getPosts : () => {
@@ -57,6 +61,7 @@ class AdminContainer extends Component {
   }
 
 
+
 	/*getPostById = (id) => {
 		var myHeaders = new Headers({
 		    "Content-Type": "json/plain",
@@ -72,13 +77,18 @@ class AdminContainer extends Component {
       	   .then(response => response.json())
 	};*/
 
-  
+  updateBlogPosts() {
+    this.context.store.dispatch(fetchBlogPosts());
+  }
 
 
     render() {
+
+        console.log(this.context.store);
         return (
         	 <div className="wrapper">
-              { React.cloneElement(this.props.children, { APIAccess: this.APIAccess }) }
+              { React.cloneElement(this.props.children, { APIAccess: this.APIAccess, 
+                                                          updateBlogPosts: this.updateBlogPosts }) }
   			   </div>
         );
     }
@@ -86,3 +96,7 @@ class AdminContainer extends Component {
 
 
 export default AdminContainer;
+
+AdminContainer.contextTypes = {
+  store: React.PropTypes.object.isRequired
+};
