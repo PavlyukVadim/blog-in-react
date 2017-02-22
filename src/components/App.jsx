@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Header from './Header.jsx';
 import Sidebar from './Sidebar.jsx';
 import Footer from './Footer.jsx';
-import './App.css';
+import './App.scss';
 
 
 class App extends Component {

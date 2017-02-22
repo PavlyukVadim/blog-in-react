@@ -85,30 +85,25 @@ class AdminContainer extends Component {
                 mode: 'cors',
                 cache: 'default' })   
               .then(response => response.json())
-    },
- 
-
+    }
   };
 
-
-
-	
 
   updateBlogPosts() {
     this.context.store.dispatch(fetchBlogPosts());
   }
 
+  render() {
 
-    render() {
-
-        console.log(this.context.store);
-        return (
-        	 <div className="wrapper">
-              { React.cloneElement(this.props.children, { APIAccess: this.APIAccess, 
-                                                          updateBlogPosts: this.updateBlogPosts }) }
-  			   </div>
-        );
-    }
+      console.log(this.context.store);
+      return (
+      	 <div className="wrapper">
+            { React.cloneElement(this.props.children, { APIAccess: this.APIAccess, 
+                                                        updateBlogPosts: this.updateBlogPosts }) }
+			   </div>
+      );
+  }
+  
 }
 
 

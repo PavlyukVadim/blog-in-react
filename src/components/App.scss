@@ -7,8 +7,12 @@ main {
 	-webkit-flex-direction: row; /* Safari */
  	flex-direction: row;
  	padding-bottom: 30px;
+ 	position: relative;
 	
 		.sidebar{
+		    right: 0;
+		    position: absolute;
+		    height: 100%;
 			width: 22%;
 			@media screen and (max-width: 768px) {
 		    	width: 108px;

@@ -20,8 +20,6 @@ class PostEditor extends Component {
 			this.props.APIAccess.getPostById( this.props.params.postId )
 			.then(json => this.setState(json) );
 		}
-		//this.props.getPostById(this.props.postId)
-    	//	.then(json => this.setState(json) );
 	}
 
 	handleTitleChange(e) {

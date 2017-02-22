@@ -8,10 +8,10 @@ import createLogger from 'redux-logger';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import App from './components/App.jsx';
-import Blog from './components/Blog.jsx';
-import News from './components/News.jsx';
 import PostEditor from './components/PostEditor.jsx';
 import Admin from './components/Admin.jsx';
+import NewsContainer from './containers/NewsContainer';
+import BlogContainer from './containers/BlogContainer';
 import NewsPageContainer from './containers/NewsPageContainer';
 import AdminContainer from './containers/AdminContainer';
 
@@ -41,9 +41,9 @@ ReactDOM.render(
   	<Provider store={store}>
   		<Router history={ browserHistory }>
       		<Route path='/' component={App}>
-      			<IndexRoute component={Blog} />
+      			<IndexRoute component={BlogContainer} />
             <Route path='posts/:postId' component={NewsPageContainer} />
-	        	<Route path='news' component={News} />
+	        	<Route path='news' component={NewsContainer} />
             <Route path='admin' component={AdminContainer}>
               <IndexRoute component={Admin} />
               <Route path='edit' component={PostEditor} />
