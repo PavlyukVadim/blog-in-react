@@ -16,6 +16,7 @@ main {
 			width: 22%;
 			@media screen and (max-width: 768px) {
 		    	width: 108px;
+		    	height: 95px;
 		    	position: fixed;
 		    	z-index: 3;
 		    	left: 0;
@@ -30,11 +31,12 @@ main {
 			z-index: 3;
 		}
 
-		/*.grid {
+		.grid {
+			width: 78%;
 			@media screen and (max-width: 768px) {
 		    	width: 100%;
 		    	margin-top: 100px;
 	  		}
-		}*/
+		}
 	
 }
