@@ -62,5 +62,10 @@ $edit-buttons-margin: 30px;
 				font-size: 20px;
 			}
 		}
+
+		[contenteditable=true]:empty:before{
+			content: attr(placeholder);
+			display: block; /* For Firefox */
+		}
 	}
 }

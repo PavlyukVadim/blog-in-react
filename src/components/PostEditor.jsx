@@ -8,21 +8,48 @@ class PostEditor extends Component {
 
 	constructor(props) {
 		super(props);
+		this.state = {};
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleTitleChange = this.handleTitleChange.bind(this);
+	}
+
+	componentDidMount(){
+		if ( this.props.params.postId ) {
+			this.updateMode = true;
+
+			this.props.APIAccess.getPostById( this.props.params.postId )
+			.then(json => this.setState(json) );
+		}
+		//this.props.getPostById(this.props.postId)
+    	//	.then(json => this.setState(json) );
+	}
+
+	handleTitleChange(e) {
+		let state = Object.assign(this.state, {title: e.target.value});
+		this.setState(state);
 	}
 
 	handleSubmit(e) {
 		e.preventDefault();
 
 		let postParams = {
-			title: this.titleInput.value,
-	        shortDescribe: 'Предположим, у нас есть два класса:... ',
-	        image: 'https://tproger2.azureedge.net/wp-content/uploads/2017/01/i2NKb_croper_ru.jpeg',
+			title: this.state.title,
+			describe: this.textInput.textContent,
+			image: 'https://tproger2.azureedge.net/wp-content/uploads/2017/01/cobol.png'
 		};
 
-		//var data = new FormData();
-		this.props.APIAccess.createPost(postParams)
-			.then(() => this.props.updateBlogPosts()); 
+		console.log(postParams)
+
+		if (!this.updateMode) {
+			this.props.APIAccess.createPost(postParams)
+				.then(() => this.props.updateBlogPosts()); 	
+		}
+
+		else {
+			this.props.APIAccess.updatePostById(this.props.params.postId, postParams)
+				.then(() => this.props.updateBlogPosts()); 
+		}
+		
 	}
 
 
@@ -30,10 +57,17 @@ class PostEditor extends Component {
 		return (
 			<div className="post-editor">
 			    <form onSubmit={this.handleSubmit}>
-			        <input type="text" placeholder="Title"
-			         ref={(input) => { this.titleInput = input; }}/>
+			        <input type="text" placeholder="Title" 
+			         value={this.state.title || ''}
+			         onChange={this.handleTitleChange} />
 			        <div className="edit-area">
-				        <div className="editable" contentEditable="true"></div>
+				        <div className="editable"
+				          contentEditable="true"
+				          placeholder="Enter text here..."
+				          suppressContentEditableWarning={true}
+				          ref={(input) => { this.textInput = input; }}>
+				          {this.state.describe}
+				        </div>
 				        <div className="edit-toolbar">
 				        	<button className="h1">h1</button>
 							<button className="bold">b</button>

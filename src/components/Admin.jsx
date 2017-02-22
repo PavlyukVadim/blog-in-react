@@ -31,7 +31,7 @@ class PostElement extends Component {
 								onClick={() => this.props.deletePostById(this.props.post.id)}>
 								<Link>Delete</Link>
 							</li>
-							<li><Link to="/">Edit</Link></li>
+							<li><Link to={"/admin/edit/" + this.props.post.id}>Edit</Link></li>
 							<li><Link to={"/posts/" + this.props.post.id}>View</Link></li>
 						</ul>
 					</div>
