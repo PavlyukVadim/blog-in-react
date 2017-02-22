@@ -7,6 +7,8 @@ import './Admin.scss';
 
 class PostElement extends Component {
 	render() {
+	
+		this.date = new Date( this.props.post.date);		
 
 		return (
 			<div className="admin-posts">
@@ -19,7 +21,10 @@ class PostElement extends Component {
 								<i className="fa fa-eye"></i>
 								<span className="n-views">{ this.props.post.views }</span>
 							</span>	
-							<time dateTime={ this.props.post.date }>{ this.props.post.date }</time>
+							<time dateTime={ this.props.post.date }>
+								{ ("0" + this.date.getDate()).slice(-2) + "/" + ("0"+(this.date.getMonth()+1)).slice(-2) + "/" +
+    this.date.getFullYear() + " " }
+							</time>
 						</p>
 						<ul className="control-panel">
 							<li className="delete" 
