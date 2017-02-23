@@ -14,7 +14,8 @@ const mapStateToProps = (state) => {
             link: item.url
         }  
     }),
-    type: 'news'
+    type: 'news',
+    isFetching: state.articlesBySource[state.selectedSource].isFetching
   }
 }
 

@@ -21,6 +21,7 @@ $items: 12;
 .grid {
   display: flex;
   flex-flow: row wrap;
+  min-height: calc(100vh - 96px - 80px);
 }
 
 
