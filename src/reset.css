@@ -48,14 +48,21 @@ table {
 }
 
 
-*, *:before, *:after {
-    box-sizing: content-box !important;
-}
-
 [type="radio"]+label:before, [type="radio"]+label:after {
     display: none;
+    box-sizing: content-box !important;
 }
 
 [type="radio"]:not(:checked)+label, [type="radio"]:checked+label {
     padding-left: 80px;
+}
+
+
+input[type=radio] ~ .check{
+    box-sizing: content-box !important;
+}
+
+input[type=radio]:checked ~ .check::before {
+    background: #0DFF92;
+    box-sizing: content-box !important;
 }
