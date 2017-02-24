@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { hashHistory } from 'react-router';
+
 
 import './PostEditor.scss';
 
@@ -36,16 +38,18 @@ class PostEditor extends Component {
 			image: 'https://tproger2.azureedge.net/wp-content/uploads/2017/01/cobol.png'
 		};
 
-		console.log(postParams)
-
 		if (!this.updateMode) {
 			this.props.APIAccess.createPost(postParams)
-				.then(() => this.props.updateBlogPosts()); 	
+				.then(() => this.props.updateBlogPosts())
+				.then(() => alert('Post sent !!!'))
+				.then(() => this.context.router.push("/admin")); 
 		}
 
 		else {
 			this.props.APIAccess.updatePostById(this.props.params.postId, postParams)
-				.then(() => this.props.updateBlogPosts()); 
+				.then(() => this.props.updateBlogPosts())
+				.then(() => alert('Post sent !!!'))
+				.then(() => this.context.router.push("/admin")); 	
 		}
 		
 	}
@@ -77,6 +81,10 @@ class PostEditor extends Component {
 		);
 	}
 
+}
+
+PostEditor.contextTypes = {
+  router: React.PropTypes.object.isRequired
 }
 
 export default PostEditor;
