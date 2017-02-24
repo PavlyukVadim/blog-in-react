@@ -46,3 +46,16 @@ table {
 	position: relative;
 	width: 100%;
 }
+
+
+*, *:before, *:after {
+    box-sizing: content-box !important;
+}
+
+[type="radio"]+label:before, [type="radio"]+label:after {
+    display: none;
+}
+
+[type="radio"]:not(:checked)+label, [type="radio"]:checked+label {
+    padding-left: 80px;
+}
