@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import GeneralPreloader from './GeneralPreloader';
 
 import './Admin.scss';
 
@@ -64,7 +65,7 @@ class Admin extends Component {
 	
 
     render() {
-		let postElements = "" 
+		let postElements = <GeneralPreloader />
 		if ( this.state.posts ) {
 			postElements = this.state.posts.map((post) =>
 				<PostElement 
@@ -75,8 +76,9 @@ class Admin extends Component {
 			);
 		}
 		
+
         return (
-        	<div>
+        	<div className="full-grid">
             	{postElements}
             	<Link to={"/admin/edit"} className="button-add">+</Link>
             </div> 

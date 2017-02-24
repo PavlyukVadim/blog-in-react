@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import GeneralPreloader from './GeneralPreloader';
 
 import './NewsPage.scss';
 
@@ -19,6 +20,9 @@ class NewsPage extends Component {
 		
 		this.date = new Date(this.state.date);
         
+        if ( !this.state.title ) {
+        	return <GeneralPreloader />
+        }
         return (
             <div className="NewsPage">
 		      	<div>

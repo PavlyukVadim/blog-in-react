@@ -24,7 +24,7 @@ class NewsPageContainer extends Component {
 
     render() {
         return (
-        	 <div>
+        	 <div className="grid full-grid">
     			   <NewsPage postId={this.props.params.postId} getPostById={this.getPostById}/>
   			   </div>
         );

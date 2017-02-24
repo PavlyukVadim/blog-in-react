@@ -18,10 +18,19 @@ $breakpoints: (
 
 $items: 12;
 
-.grid {
+.grid, .full-grid {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column;
   min-height: calc(100vh - 96px - 80px);
+}
+
+.grid{
+  flex-flow: row wrap;
+}
+
+.full-grid{
+  align-items: center;
+  justify-content: center;
 }
 
 
