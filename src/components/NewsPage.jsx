@@ -12,7 +12,13 @@ class NewsPage extends Component {
 	
 	componentDidMount(){
 		this.props.getPostById(this.props.postId)
-    		.then(json => this.setState(json) );
+    		.then(json => this.setState(json));
+	}
+
+	componentWillUnmount(){
+		this.props.updatePostById(this.props.postId,
+    		Object.assign(this.state, {'views': this.state.views + 1}) )
+		.then(() => this.props.updateBlogPosts());
 	}
 
 
