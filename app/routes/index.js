@@ -54,7 +54,7 @@ module.exports = function(app) {
 	        title: req.body.title,
 	        describe: req.body.describe,
 	        image: req.body.image,
-	        views: posts[req.params.postId - 1].views,
+	        views: req.body.views,
 	        date: Date.now()
 	  	}  
 	    res.end(JSON.stringify(posts));

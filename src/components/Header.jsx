@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { Navbar, NavItem, Badge } from 'react-materialize';
 
-import './Header.css';
+import './Header.scss';
 
 
 class Header extends Component {
 	render() {
 		return (
 			<header>
-				<Link to="/">Blog</Link>
-				<Link to="/news">News</Link>
-				<Link to="/admin">Admin</Link>
+				<Navbar className="nav-bar" brand='Blog' right>
+				    <Link to="/">Blog</Link>
+					<Link to="/news">News</Link>
+					<Link to="/admin">Admin</Link>
+				</Navbar>
 			</header>
+			
 		);
 	}
 }

@@ -21,7 +21,7 @@ $items: 12;
 .grid, .full-grid {
   display: flex;
   flex-flow: column;
-  min-height: calc(100vh - 96px - 80px);
+  min-height: calc(100vh - 64px - 122px);
 }
 
 .grid{
