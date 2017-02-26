@@ -41,8 +41,17 @@
 
 		.news-desc{
 			margin: 10px 0 40px 0;
+			
+			pre {
+			    white-space: pre-wrap;       
+			    white-space: -moz-pre-wrap;  
+			    white-space: -pre-wrap;      
+			    white-space: -o-pre-wrap;    
+			    word-wrap: break-word; 
+				overflow: hidden;
+			}
 		}
-
+		
 	}
 	
 }

@@ -47,7 +47,9 @@ class NewsPage extends Component {
     						</time>
 						</p>
 					</div>
-		      		<p className="news-desc" dangerouslySetInnerHTML={{__html: this.state.describe}}></p>
+		      		<p className="news-desc">
+		      			<pre> {this.state.describe} </pre>
+		      		</p>
 		      	</div>
 	      	</div>
         );
