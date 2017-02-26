@@ -55,7 +55,7 @@ module.exports = function(app) {
 	        describe: req.body.describe,
 	        image: req.body.image,
 	        views: req.body.views,
-	        date: Date.now()
+	        date: req.body.date
 	  	}  
 	    res.end(JSON.stringify(posts));
 	})
