@@ -13,6 +13,7 @@ class PostEditor extends Component {
 		this.state = {};
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleTitleChange = this.handleTitleChange.bind(this);
+		this.handleTextChange = this.handleTextChange.bind(this);
 	}
 
 	componentDidMount(){
@@ -29,13 +30,21 @@ class PostEditor extends Component {
 		this.setState(state);
 	}
 
+	handleTextChange(e) {
+		let state = Object.assign(this.state, {describe: e.target.value});
+		this.setState(state);
+	}
+
+
 	handleSubmit(e) {
 		e.preventDefault();
 
 		let postParams = {
 			title: this.state.title,
 			describe: this.textInput.textContent,
-			image: 'https://tproger2.azureedge.net/wp-content/uploads/2017/01/cobol.png'
+			image: 'https://tproger2.azureedge.net/wp-content/uploads/2017/01/cobol.png',
+			views: this.state.views,
+			date: this.state.date
 		};
 
 		if (!this.updateMode) {
@@ -59,24 +68,31 @@ class PostEditor extends Component {
 		return (
 			<div className="post-editor">
 			    <form onSubmit={this.handleSubmit}>
-			        <input type="text" placeholder="Title" 
-			         value={this.state.title || ''}
-			         onChange={this.handleTitleChange} />
-			        <div className="edit-area">
-				        <div className="editable"
-				          contentEditable="true"
-				          placeholder="Enter text here..."
-				          suppressContentEditableWarning={true}
-				          ref={(input) => { this.textInput = input; }}>
-				          {this.state.describe}
-				        </div>
-				        <div className="edit-toolbar">
-				        	<button className="h1">h1</button>
-							<button className="bold">b</button>
-				        </div>
-				        <input type="submit" value="Submit" />
-			        </div>
-			    </form>
+				    <div className="form-group">
+				      <input type="text" 
+				      	required="required" 
+				      	value={this.state.title || ''}
+			         	onChange={this.handleTitleChange}/>
+				      <label className="control-label" htmlFor="input">Title</label><i className="bar"></i>
+				    </div>
+				    <div className="form-group">
+				      <textarea required="required"
+				      	ref={(input) => { this.textInput = input; }}
+		        		value={this.state.describe}
+		        		onChange={this.handleTextChange}></textarea>
+				      <label className="control-label" htmlFor="textarea">Text</label><i className="bar"></i>
+				    </div>
+				    <div className="checkbox">
+				      <label>
+				        <input type="checkbox"/><i className="helper"></i>Update date
+				      </label>
+				    </div>
+				    <div className="button-container">
+    					<button className="button" type="submit"><span>Submit</span>
+    				</button> 
+    				</div>
+				</form>
+
 			</div>
 		);
 	}
