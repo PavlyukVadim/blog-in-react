@@ -41,8 +41,8 @@ class NewsPageContainer extends Component {
               .then(response => response.json())
     }
 
-  updateViewsNumber(id, views) {
-    this.context.store.dispatch(updateViewsNumberInPosts(id, views));
+  updateViewsNumber(id) {
+    this.context.store.dispatch(updateViewsNumberInPosts(id));
   }
 
     render() {

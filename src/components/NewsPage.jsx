@@ -18,7 +18,7 @@ class NewsPage extends Component {
 	componentWillUnmount(){
 		this.props.updatePostById(this.props.postId,
     		Object.assign(this.state, {'views': this.state.views + 1}) )
-		.then(() => this.props.updateViewsNumber(this.props.postId, this.state.views));
+		.then(() => this.props.updateViewsNumber(this.props.postId));
 	}
 
 

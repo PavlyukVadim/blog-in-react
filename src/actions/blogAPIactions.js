@@ -6,11 +6,10 @@ export const RECEIVE_BLOG_POSTS = 'RECEIVE_BLOG_POSTS';
 export const UPDATE_VIEWS_NUMBER = 'UPDATE_VIEWS_NUMBER';
 
 
-export function updateViewsNumberInPosts(id, views) {
+export function updateViewsNumberInPosts(id) {
 	return {
 		type: UPDATE_VIEWS_NUMBER,
-		id: id,
-		views: views
+		id: id
 	}
 }
 
