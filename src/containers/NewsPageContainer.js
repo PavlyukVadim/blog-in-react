@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
 import NewsPage from '../components/NewsPage.jsx';
-import { fetchBlogPosts } from '../actions/blogAPIactions';
+import { updateViewsNumberInPosts } from '../actions/blogAPIactions';
 
 
 class NewsPageContainer extends Component {
 
   constructor(props) {
     super(props);
-    this.updateBlogPosts = this.updateBlogPosts.bind(this);
+    this.updateViewsNumber = this.updateViewsNumber.bind(this);
   }
 	
 	getPostById = (id) => {
@@ -41,8 +41,8 @@ class NewsPageContainer extends Component {
               .then(response => response.json())
     }
 
-  updateBlogPosts() {
-    this.context.store.dispatch(fetchBlogPosts());
+  updateViewsNumber(id, views) {
+    this.context.store.dispatch(updateViewsNumberInPosts(id, views));
   }
 
     render() {
@@ -52,7 +52,7 @@ class NewsPageContainer extends Component {
                 postId={this.props.params.postId} 
                 getPostById={this.getPostById}
                 updatePostById={this.updatePostById}
-                updateBlogPosts={this.updateBlogPosts}/>
+                updateViewsNumber={this.updateViewsNumber}/>
   			   </div>
         );
     }
