@@ -1,4 +1,6 @@
-import { REQUEST_BLOG_POSTS, RECEIVE_BLOG_POSTS } from '../actions/blogAPIactions';
+import { REQUEST_BLOG_POSTS,
+         RECEIVE_BLOG_POSTS,
+         UPDATE_VIEWS_NUMBER } from '../actions/blogAPIactions';
 
 
 function posts(state = {
@@ -27,6 +29,12 @@ function blogPosts(state = {}, action) {
             return Object.assign({}, state, {
               ['posts']: posts(state['blogPosts'], action)
             })
+        case UPDATE_VIEWS_NUMBER:
+            let newState = Object.assign({}, state);
+            newState.posts.items.forEach((post) => { 
+                if(post.id == action.id) post.views++;
+            });
+            return newState    
         default: return state
     }
 }

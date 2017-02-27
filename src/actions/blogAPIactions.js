@@ -3,6 +3,17 @@ import fetch from 'isomorphic-fetch';
 
 export const REQUEST_BLOG_POSTS = 'REQUEST_BLOG_POSTS';
 export const RECEIVE_BLOG_POSTS = 'RECEIVE_BLOG_POSTS';
+export const UPDATE_VIEWS_NUMBER = 'UPDATE_VIEWS_NUMBER';
+
+
+export function updateViewsNumberInPosts(id, views) {
+	return {
+		type: UPDATE_VIEWS_NUMBER,
+		id: id,
+		views: views
+	}
+}
+
 
 
 export function requestBlogPosts() {
