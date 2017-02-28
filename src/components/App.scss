@@ -14,6 +14,7 @@ main {
 		    height: 100%;
 			width: 22%;
 			@media screen and (max-width: 768px) {
+		    	display: none;
 		    	width: 108px;
 		    	height: 95px;
 		    	position: fixed;
@@ -34,12 +35,16 @@ main {
 			width: 78%;
 			@media screen and (max-width: 768px) {
 		    	width: 100%;
-		    	margin-top: 100px;
+		    	margin-top: 80px;
 	  		}
 		}
 
 		.full-grid{
 			width: 100%;
+			@media screen and (max-width: 768px) {
+		    	width: 100%;
+		    	margin-top: 80px;
+	  		}
 		}
 	
 }
