@@ -42,7 +42,7 @@ class PostEditor extends Component {
 		let postParams = {
 			title: this.state.title,
 			describe: this.textInput.textContent,
-			image: 'https://tproger2.azureedge.net/wp-content/uploads/2017/01/cobol.png',
+			image: 'http://mustaqbilpakistan.pk/img/img.png',
 			views: this.state.views,
 			date: this.state.date
 		};
