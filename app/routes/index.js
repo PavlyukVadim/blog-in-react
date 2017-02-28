@@ -61,7 +61,7 @@ module.exports = function(app) {
 	})
 
 	.delete(function(req, res, next){
-		posts.splice(req.params.postId - 1, 1);
+		delete posts[req.params.postId - 1];
 	    res.end(JSON.stringify(posts));
 	});
 

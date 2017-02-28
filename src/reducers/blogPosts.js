@@ -15,7 +15,7 @@ function posts(state = {
         case RECEIVE_BLOG_POSTS:
             return Object.assign({}, state, {
                 isFetching: false,
-                items: action.posts,
+                items: action.posts.filter(post => post !== null),
                 lastUpdated: action.receivedAt
             });
         default: return state;

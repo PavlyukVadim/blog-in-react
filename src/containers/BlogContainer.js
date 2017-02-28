@@ -21,7 +21,7 @@ const getSortedNews = (sortBy, NEWS) => {
 
 const mapStateToProps = (state) => {
   return {
-    news: getSortedNews(state.visibilityFilter, state.blogPosts.posts.items),
+    news: getSortedNews(state.visibilityFilter, state.blogPosts.posts.items.filter((item) => item !== null)),
     type: 'blog',
     isFetching: state.blogPosts.posts.isFetching
   }

@@ -67,13 +67,15 @@ class Admin extends Component {
     render() {
 		let postElements = <GeneralPreloader />
 		if ( this.state.posts ) {
-			postElements = this.state.posts.map((post) =>
-				<PostElement 
-					key={post.id}
-					post={post}
-					deletePostById={this.deletePostById}
-				/>
-			);
+			postElements = this.state.posts.map((post) => {
+				if(post) { 
+					return <PostElement 
+						key={post.id}
+						post={post}
+						deletePostById={this.deletePostById}
+					/>
+				}
+			});
 		}
 		
 
