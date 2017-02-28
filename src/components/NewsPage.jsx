@@ -47,9 +47,7 @@ class NewsPage extends Component {
     						</time>
 						</p>
 					</div>
-		      		<p className="news-desc">
-		      			<pre> {this.state.describe} </pre>
-		      		</p>
+		      		<pre className="news-desc"> {this.state.describe} </pre>
 		      	</div>
 	      	</div>
         );

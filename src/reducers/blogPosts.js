@@ -27,12 +27,12 @@ function blogPosts(state = {}, action) {
         case RECEIVE_BLOG_POSTS:
         case REQUEST_BLOG_POSTS:
             return Object.assign({}, state, {
-              ['posts']: posts(state['blogPosts'], action)
+              posts: posts(state['blogPosts'], action)
             })
         case UPDATE_VIEWS_NUMBER:
             let newState = Object.assign({}, state);
             newState.posts.items.forEach((post) => { 
-                if(post.id == action.id) post.views++;
+                if( Number(post.id) === Number(action.id) ) post.views++;
             });
             return newState    
         default: return state

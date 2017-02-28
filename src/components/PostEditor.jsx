@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { hashHistory } from 'react-router';
-
-
 import './PostEditor.scss';
 
 

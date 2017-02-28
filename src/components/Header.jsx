@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { Navbar, NavItem, Badge } from 'react-materialize';
+import { Navbar, NavItem } from 'react-materialize';
 
 import './Header.scss';
 
