@@ -32,7 +32,8 @@ export function fetchBlogPosts() {
 			'Content-Type': 'json/plain',
 			'X-Custom-Header': 'ProcessThisImmediately',
 		});
-  	return fetch(`http://localhost:9000/posts`,{
+		let hostname = window.location.origin;
+  	return fetch(`${hostname}/posts`,{
               method: 'GET',
               headers: myHeaders,
               mode: 'cors',
