@@ -6,6 +6,7 @@ class AdminContainer extends Component {
 
   constructor(props) {
     super(props);
+    this.hostname = location.protocol + '//' + location.hostname;
     this.updateBlogPosts = this.updateBlogPosts.bind(this);
   }
   	
@@ -16,7 +17,7 @@ class AdminContainer extends Component {
         'Content-Type': 'json/plain',
         'X-Custom-Header': 'ProcessThisImmediately',
       });
-      return fetch(`http://localhost:9000/posts`,{
+      return fetch(`${this.hostname}:9000/posts`,{
                 method: 'GET',
                 headers: myHeaders,
                 mode: 'cors',
@@ -29,7 +30,7 @@ class AdminContainer extends Component {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       });
-      return fetch(`http://localhost:9000/posts`,{
+      return fetch(`${this.hostname}:9000/posts`,{
                 method: 'POST', 
                 headers: myHeaders,
                 body: JSON.stringify(data),
@@ -43,7 +44,7 @@ class AdminContainer extends Component {
         'Content-Type': 'json/plain',
         'X-Custom-Header': 'ProcessThisImmediately',
       });
-      return fetch(`http://localhost:9000/posts/${id}`,{
+      return fetch(`${this.hostname}:9000/posts/${id}`,{
                 method: 'GET',
                 headers: myHeaders,
                 mode: 'cors',
@@ -56,7 +57,7 @@ class AdminContainer extends Component {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
       });
-      return fetch(`http://localhost:9000/posts/${id}`,{
+      return fetch(`${this.hostname}:9000/posts/${id}`,{
                 method: 'PUT', 
                 headers: myHeaders,
                 body: JSON.stringify(data),
@@ -70,7 +71,7 @@ class AdminContainer extends Component {
         'Content-Type': 'json/plain',
         'X-Custom-Header': 'ProcessThisImmediately',
       });
-      return fetch(`http://localhost:9000/posts/${id}`,{
+      return fetch(`${this.hostname}:9000/posts/${id}`,{
                 method: 'DELETE',
                 headers: myHeaders,
                 mode: 'cors',

@@ -8,6 +8,7 @@ class NewsPageContainer extends Component {
 
   constructor(props) {
     super(props);
+    this.hostname = location.protocol + '//' + location.hostname;
     this.updateViewsNumber = this.updateViewsNumber.bind(this);
   }
 	
@@ -18,7 +19,7 @@ class NewsPageContainer extends Component {
 		});
 
 
-		return fetch(`http://localhost:9000/posts/${id}`,{
+		return fetch(`${this.hostname}:9000/posts/${id}`,{
               method: 'GET',
               headers: myHeaders,
               mode: 'cors',
@@ -32,7 +33,7 @@ class NewsPageContainer extends Component {
           'Content-Type': 'application/json',
       });
 
-      return fetch(`http://localhost:9000/posts/${id}`,{
+      return fetch(`${this.hostname}:9000/posts/${id}`,{
                 method: 'PUT', 
                 headers: myHeaders,
                 body: JSON.stringify(data),
