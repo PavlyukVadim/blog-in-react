@@ -5,14 +5,12 @@ const express = require('express'),
 	cors = require('cors');
 
 
-var app = express();
+let app = express();
 app.use(cors()); 
 
 require('./app/routes')(app);
 
 app.use(morgan('dev'));
-
-//app.use('/posts', postRouter);
 
 app.use(express.static('./build'));
 
@@ -20,6 +18,7 @@ app.get('/', function (req, res) {
  	res.sendFile(path.join(__dirname, './build', 'index.html'));
 });
 
-app.listen(config.get('port'), config.get('hostname'), function(){
-	console.log(`Server running at http://${config.get('hostname')}:${config.get('port')}/`);
+let port = process.env.PORT || config.get('port'); 
+  app.listen(port, function() { 
+    console.log('Listening on ' + port); 
 });
