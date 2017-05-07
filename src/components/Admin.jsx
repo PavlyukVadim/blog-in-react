@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import GeneralPreloader from './GeneralPreloader';
 
-import './Admin.scss';
+import './Admin.css';
 
 
 
