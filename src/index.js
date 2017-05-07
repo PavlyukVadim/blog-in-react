@@ -15,13 +15,11 @@ import BlogContainer from './containers/BlogContainer';
 import NewsPageContainer from './containers/NewsPageContainer';
 import AdminContainer from './containers/AdminContainer';
 
-
 import blogApp from './reducers';
 import { fetchPostsIfNeeded } from './actions/newsAPIactions';
 import { fetchBlogPostsIfNeeded } from './actions/blogAPIactions';
 
 import './reset.css';
-
 
 const loggerMiddleware = createLogger();
 
@@ -35,7 +33,6 @@ let store = createStore(
 
 store.dispatch(fetchPostsIfNeeded('time'));
 store.dispatch(fetchBlogPostsIfNeeded());
-
 
 ReactDOM.render(
   	<Provider store={store}>

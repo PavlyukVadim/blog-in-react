@@ -1,10 +1,8 @@
 import fetch from 'isomorphic-fetch';
 
-
 export const REQUEST_BLOG_POSTS = 'REQUEST_BLOG_POSTS';
 export const RECEIVE_BLOG_POSTS = 'RECEIVE_BLOG_POSTS';
 export const UPDATE_VIEWS_NUMBER = 'UPDATE_VIEWS_NUMBER';
-
 
 export function updateViewsNumberInPosts(id) {
 	return {
@@ -13,14 +11,11 @@ export function updateViewsNumberInPosts(id) {
 	}
 }
 
-
-
 export function requestBlogPosts() {
 	return {
 		type: REQUEST_BLOG_POSTS
 	}
 }
-
 
 export function receiveBlogPosts(json) {
 	return {
@@ -30,24 +25,22 @@ export function receiveBlogPosts(json) {
 	}
 }
 
-
 export function fetchBlogPosts() {
 	return function (dispatch) {
-    	dispatch(requestBlogPosts());
-
-    	let myHeaders = new Headers({
-			"Content-Type": "json/plain",
-			"X-Custom-Header": "ProcessThisImmediately",
+    dispatch(requestBlogPosts());
+  	let myHeaders = new Headers({
+			'Content-Type': 'json/plain',
+			'X-Custom-Header': 'ProcessThisImmediately',
 		});
-
-    	return fetch(`http://localhost:9000/posts`,{
-                method: 'GET',
-                headers: myHeaders,
-                mode: 'cors',
-                cache: 'default' })   
-           .then(response => response.json())
-  	       .then(json => dispatch( receiveBlogPosts(json)) )
-  	}
+  	return fetch(`http://localhost:9000/posts`,{
+              method: 'GET',
+              headers: myHeaders,
+              mode: 'cors',
+              cache: 'default' 
+            })
+  					.then(response => response.json())
+            .then(json => dispatch( receiveBlogPosts(json)))
+  }
 }
 
 function shouldFetchBlogPosts(state) {

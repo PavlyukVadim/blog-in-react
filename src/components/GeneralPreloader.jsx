@@ -6,6 +6,6 @@ export default () => {
   return (
     <div className="preloader">
     	<Preloader flashing/>
-	</div>
+  	</div>
   );
 };

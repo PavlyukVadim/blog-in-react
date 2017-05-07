@@ -4,18 +4,16 @@ import { Navbar, NavItem } from 'react-materialize';
 
 import './Header.css';
 
-
 class Header extends Component {
 	render() {
 		return (
 			<header>
 				<Navbar className="nav-bar" brand='Blog' right>
-				    <Link to="/">Blog</Link>
+				  <Link to="/">Blog</Link>
 					<Link to="/news">News</Link>
 					<Link to="/admin">Admin</Link>
 				</Navbar>
 			</header>
-			
 		);
 	}
 }
