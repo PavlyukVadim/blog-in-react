@@ -67,8 +67,8 @@ class AdminContainer extends Component {
 
     deletePostById : (id) => {
       let myHeaders = new Headers({
-        'Content-Type": "json/plain',
-        'X-Custom-Header": "ProcessThisImmediately',
+        'Content-Type': 'json/plain',
+        'X-Custom-Header': 'ProcessThisImmediately',
       });
       return fetch(`http://localhost:9000/posts/${id}`,{
                 method: 'DELETE',
