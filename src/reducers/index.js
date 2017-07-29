@@ -5,10 +5,10 @@ import articlesBySource from './articles';
 import blogPosts from './blogPosts';
 
 const blogApp = combineReducers({
-	visibilityFilter,
-	selectedSource,
-	articlesBySource,
-	blogPosts
+  visibilityFilter,
+  selectedSource,
+  articlesBySource,
+  blogPosts
 })
 
 export default blogApp;

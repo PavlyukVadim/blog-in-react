@@ -1,12 +1,6 @@
-import { REQUEST_BLOG_POSTS,
-         RECEIVE_BLOG_POSTS,
-         UPDATE_VIEWS_NUMBER } from '../actions/blogAPIactions';
+import { REQUEST_BLOG_POSTS, RECEIVE_BLOG_POSTS, UPDATE_VIEWS_NUMBER } from '../actions/blogAPIactions';
 
-
-function posts(state = {
-    isFetching: false,
-    items: []
-}, action) {
+function posts(state = { isFetching: false, items: [] }, action) {
   switch (action.type) {
     case REQUEST_BLOG_POSTS:
       return Object.assign({}, state, {

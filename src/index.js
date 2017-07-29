@@ -18,36 +18,35 @@ import AdminContainer from './containers/AdminContainer';
 import blogApp from './reducers';
 import { fetchPostsIfNeeded } from './actions/newsAPIactions';
 import { fetchBlogPostsIfNeeded } from './actions/blogAPIactions';
-
 import './reset.css';
 
 const loggerMiddleware = createLogger();
 
 let store = createStore(
-	blogApp,
-	applyMiddleware(
-    	thunkMiddleware, // lets us dispatch() functions
-    	loggerMiddleware // neat middleware that logs actions
-  	)
+  blogApp,
+  applyMiddleware(
+    thunkMiddleware, // lets us dispatch() functions
+    loggerMiddleware // neat middleware that logs actions
+  )
 );
 
 store.dispatch(fetchPostsIfNeeded('time'));
 store.dispatch(fetchBlogPostsIfNeeded());
 
 ReactDOM.render(
-  	<Provider store={store}>
-  		<Router history={ browserHistory }>
-      		<Route path='/' component={App}>
-      			<IndexRoute component={BlogContainer} />
-            <Route path='posts/:postId' component={NewsPageContainer} />
-	        	<Route path='news' component={NewsContainer} />
-            <Route path='admin' component={AdminContainer}>
-              <IndexRoute component={Admin} />
-              <Route path='edit' component={PostEditor} />
-              <Route path='edit/:postId' component={PostEditor} />
-            </Route>
-        	</Route> 
-    	</Router>
-  	</Provider>,
+  <Provider store={store}>
+    <Router history={ browserHistory }>
+      <Route path='/' component={App}>
+        <IndexRoute component={BlogContainer} />
+        <Route path='posts/:postId' component={NewsPageContainer} />
+        <Route path='news' component={NewsContainer} />
+        <Route path='admin' component={AdminContainer}>
+          <IndexRoute component={Admin} />
+          <Route path='edit' component={PostEditor} />
+          <Route path='edit/:postId' component={PostEditor} />
+        </Route>
+      </Route> 
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );

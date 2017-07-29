@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import NewsContent from '../components/NewsContent';
 
-const sortByDate = (a, b) =>  b.date - a.date;
-const sortByPopular = (a, b)  =>  b.views - a.views;
-const sortByAlphabet = (a, b) =>  a.title.localeCompare(b.title);
+const sortByDate = (a, b) => b.date - a.date;
+const sortByPopular = (a, b) => b.views - a.views;
+const sortByAlphabet = (a, b) => a.title.localeCompare(b.title);
 const getSortedNews = (sortBy, NEWS) => {
   switch (sortBy) {
     case 'FILTER_DATE': return [].concat( NEWS.sort(sortByDate) );

@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
-
 import { fetchPostsIfNeeded } from '../actions/newsAPIactions.js';
 import NewFilters from '../components/NewFilters';
 
 const mapStateToProps = (state) => {
-  return { state };
+  return { 
+    state
+  };
 }
 
 const mapDispatchToProps = (dispatch) => {

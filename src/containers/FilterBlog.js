@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { setDateFilter, setPopularFilter, setAlphabetFilter } from '../actions';
-
 import BlogFilters from '../components/BlogFilters';
 
 const mapStateToProps = (state) => {
@@ -22,8 +21,8 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const FilterBlog = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(BlogFilters)
+  mapStateToProps,
+  mapDispatchToProps
+)(BlogFilters);
 
 export default FilterBlog;

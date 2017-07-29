@@ -1,9 +1,6 @@
 import { REQUEST_POSTS, RECEIVE_POSTS } from '../actions/newsAPIactions';
 
-function posts(state = {
-  isFetching: false,
-  items: []
-}, action) {
+function posts(state = { isFetching: false, items: [] }, action) {
   switch (action.type) {
     case REQUEST_POSTS:
       return Object.assign({}, state, {
