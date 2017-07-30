@@ -38,7 +38,7 @@ class BlogFilters extends Component {
             />
             <label htmlFor="alphabet">По алфавиту</label>
             <div className="check">
-              <div className="inside"><20>
+              <div className="inside" />
             </div>
           </li>
         </ul>
