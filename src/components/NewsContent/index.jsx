@@ -1,32 +1,21 @@
 import React, { Component } from 'react';
 import GeneralPreloader from '../GeneralPreloader';
-import BlogCard from '../BlogCard';
-import NewsCard from '../NewsCard';
-//import './grid.css';
+import PostCard from '../PostCard';
 
 class NewsContent extends Component {
   render() {
     let cards;
     if (this.props.isFetching) {
       cards = <GeneralPreloader />
-    } else if (this.props.type === 'blog') {
+    } else if (this.props.type) {
       cards = this.props.news.map((news) => {
         return (
-          <BlogCard
+          <PostCard
             key={news.id}
             info={news}
           />
         );
       });	
-    } else if (this.props.type === 'news') {
-      cards = this.props.news.map((news) => {
-        return (
-          <NewsCard
-            key={news.id}
-            info={news}
-          />
-        );
-      });
     }
 
     return (

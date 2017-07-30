@@ -13,12 +13,12 @@ class Sidebar extends Component {
 
   openMenu() {
     this.buttonMenu.classList.toggle('active');
-    this.sideBar.classList.toggle('mob-sidebar');
+    this.sideBar.classList.toggle('mobSidebar');
   }
 
   closeMenu() {
     this.buttonMenu.classList.remove('active');
-    this.sideBar.classList.remove('mob-sidebar');
+    this.sideBar.classList.remove('mobSidebar');
   }
 
   render() {
