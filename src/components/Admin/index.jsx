@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import GeneralPreloader from '../GeneralPreloader';
-import './Admin.scss';
+import styles from './Admin.scss';
 
 class PostElement extends Component {
   render() {
     this.date = new Date(this.props.post.date);
     return (
-      <div className="admin-posts">
+      <div className={styles.adminPosts}>
         <div>
-          <p className="title">
-            {this.props.post.title }
+          <p className={styles.title}>
+            {this.props.post.title}
           </p>
           <div>
-            <div className="bg-wrap"></div>
-            <p className="stats">
-              <span className="views">
+            <div className={styles.bgWrap} />
+            <p className={styles.stats}>
+              <span className={styles.views}>
                 <i className="fa fa-eye" />
-                <span className="n-views">
+                <span className={styles.nViews}>
                   {this.props.post.views}
                 </span>
               </span>
@@ -28,18 +28,18 @@ class PostElement extends Component {
                 }
               </time>
             </p> 
-            <ul className="control-panel">
+            <ul className={styles.controlPanel}>
               <li
-                className="delete"
+                className={styles.delete}
                 onClick={() => this.props.deletePostById(this.props.post.id)}
               >
                 <Link>Delete</Link>
               </li>
               <li>
-                <Link to={'/admin/edit/' + this.props.post.id }>Edit</Link>
+                <Link to={`/admin/edit/${this.props.post.id}`}>Edit</Link>
               </li>
               <li>
-                <Link to={'/posts/' + this.props.post.id }>View</Link>
+                <Link to={`/posts/${this.props.post.id}`}>View</Link>
               </li>
             </ul>
           </div>
@@ -87,8 +87,8 @@ class Admin extends Component {
       <div className="full-grid">
         {postElements}
         <Link
-          className="button-add"
-          to={'/admin/edit'}
+          className={styles.buttonAdd}
+          to={`/admin/edit`}
         >
           +
         </Link>

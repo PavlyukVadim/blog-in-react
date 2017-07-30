@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './Filters.scss';
+import styles from './Filters.scss';
 
 class BlogFilters extends Component {
   render() {
     return (
-      <div className="filters">
+      <div className={styles.filters}>
         <ul>
           <li>
             <input
@@ -15,7 +15,7 @@ class BlogFilters extends Component {
               defaultChecked
             />
             <label htmlFor="date">По новизне</label>
-            <div className="check"></div>
+            <div className={styles.check} />
           </li>
           <li>
             <input
@@ -25,8 +25,8 @@ class BlogFilters extends Component {
               onChange={this.props.setPopular}
             />
             <label htmlFor="popular">По популярности</label>
-            <div className="check">
-              <div className="inside" />
+            <div className={styles.check}>
+              <div className={styles.inside} />
             </div>
           </li>
           <li>
@@ -37,8 +37,8 @@ class BlogFilters extends Component {
               onChange={this.props.setAlphabet}
             />
             <label htmlFor="alphabet">По алфавиту</label>
-            <div className="check">
-              <div className="inside" />
+            <div className={styles.check}>
+              <div className={styles.inside} />
             </div>
           </li>
         </ul>

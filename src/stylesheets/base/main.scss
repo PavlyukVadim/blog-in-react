@@ -1,2 +1,4 @@
-@import 'grid';
-@import 'reset';
+:global {
+  @import 'grid';
+  @import 'reset';
+}

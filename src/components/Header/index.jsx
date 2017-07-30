@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { Navbar, NavItem } from 'react-materialize';
-
-import './Header.scss';
+import styles from './Header.scss';
 
 class Header extends Component {
   render() {
     return (
       <header>
         <Navbar
-          className="nav-bar"
+          className={styles.navBar}
           brand='Blog'
           right
         >

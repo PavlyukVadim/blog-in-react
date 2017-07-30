@@ -1,121 +1,115 @@
 .sidebar {
-	background-color: rgb(33,33,33);
-	
-	
-	.cmn-toggle-switch {
-		display: block;
-		position: relative;
-		overflow: hidden;
-		right: 0;
-		margin: 0;
-		padding: 0;
-		width: 108px;
-		height: 96px;
-		font-size: 0;
-		text-indent: -9999px;
-		appearance: none;
-		box-shadow: none;
-		border-radius: none;
-		border: none;
-		cursor: pointer;
-		transition: background 0.3s;
-		@media screen and(min-width: 768px) {
-			display: none;
-		}
-		
-		&:focus {
-			outline: none;
-		}
+  background-color: rgb(33, 33, 33);
 
-		span {
-			display: block;
-			position: absolute;
-			top: 45px;
-			left: 18px;
-			right: 18px;
-			height: 6px;
-			background: white;
+  .toggleSwitch {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    width: 108px;
+    height: 96px;
+    font-size: 0;
+    text-indent: -9999px;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    
+    @media screen and(min-width: 768px) {
+      display: none;
+    }
 
-			&::before,
-			&::after {
-				position: absolute;
-				display: block;
-				left: 0;
-				width: 100%;
-				height: 6px;
-				background-color: #fff;
-				content: "";
-			}
+    &:focus {
+      outline: none;
+    }
 
-			&::before {
-			    top: -27px;
-			}
+    span {
+      display: block;
+      position: absolute;
+      top: 45px;
+      left: 18px;
+      right: 18px;
+      height: 6px;
+      background: white;
 
-			&::after {
-			    bottom: -27px;
-			}
+      &::before,
+      &::after {
+        position: absolute;
+        display: block;
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background-color: #fff;
+        content: "";
+      }
 
-		}
+      &::before {
+        top: -27px;
+      }
 
-	}
+      &::after {
+        bottom: -27px;
+      }
+    }
+  }
 }
 
 .mob-sidebar {
-	position: relative;
-	width: 400px;
+  position: relative;
+  width: 400px;
 
-	.filters {
-		display: block;
-	}
+  .filters {
+    display: block;
+  }
 }
 
-.cmn-toggle-switch__htx {
-	background-color: #ff3264;
+.toggleSwitchHT {
+  background-color: #ff3264;
 
-	span {
-    	transition: background 0 0.3s;
-		
-		&::before,
-		&::after {
-			transition-duration: 0.3s, 0.3s;
-			transition-delay: 0.3s, 0;
-		}
+  span {
+    transition: background 0 0.3s;
 
-		&::before { 
-			transition-property: top, transform;
-		}
+    &::before,
+    &::after {
+      transition-duration: 0.3s, 0.3s;
+      transition-delay: 0.3s, 0;
+    }
 
-		&::after {
-			transition-property: bottom, transform;
-		}
+    &::before {
+      transition-property: top, transform;
+    }
 
-	}
-
+    &::after {
+      transition-property: bottom, transform;
+    }
+  }
 }
-
-
-
 
 /* active state, i.e. menu open */
-.cmn-toggle-switch__htx.active {
-	background-color: rgb(33,33,33);
+
+.toggleSwitchHT.active {
+  background-color: rgb(33, 33, 33);
 }
 
-.cmn-toggle-switch__htx.active span {
-	background: none;
+.toggleSwitchHT.active span {
+  background: none;
 }
 
-.cmn-toggle-switch__htx.active span::before {
-	top: 0;
-	transform: rotate(45deg);
+.toggleSwitchHT.active span::before {
+  top: 0;
+  transform: rotate(45deg);
 }
 
-.cmn-toggle-switch__htx.active span::after {
-	bottom: 0;
-	transform: rotate(-45deg);
+.toggleSwitchHT.active span::after {
+  bottom: 0;
+  transform: rotate(-45deg);
 }
 
-.cmn-toggle-switch__htx.active span::before,
-.cmn-toggle-switch__htx.active span::after {
-	transition-delay: 0, 0.3s;
+.toggleSwitchHT.active span::before,
+.toggleSwitchHT.active span::after {
+  transition-delay: 0, 0.3s;
 }

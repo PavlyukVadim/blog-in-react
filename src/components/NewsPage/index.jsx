@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import GeneralPreloader from '../GeneralPreloader';
-import './NewsPage.scss';
+import styles from './NewsPage.scss';
 
 class NewsPage extends Component {
 
@@ -26,16 +26,20 @@ class NewsPage extends Component {
     }
     
     return (
-      <div className="NewsPage">
+      <div className={styles.newsPage}>
         <div>
-          <p className="title">{this.state.title}</p>
+          <p className={styles.title}>
+            {this.state.title}
+          </p>
           <div>
-            <div className="bg-wrap" />
+            <div className={styles.bgWrap} />
             <img src={this.state.image} alt="news" />
-            <p className="stats">
-              <span className="views">
+            <p className={styles.stats}>
+              <span className={styles.views}>
                 <i className="fa fa-eye" />
-                <span className="n-views">{this.state.views}</span>
+                <span className={styles.nViews}>
+                  {this.state.views}
+                </span>
               </span>
               <time dateTime={this.state.date}>
                 {('0' + this.date.getDate()).slice(-2) + '/' + ('0'+(this.date.getMonth() + 1)).slice(-2) + '/' +
@@ -43,7 +47,9 @@ class NewsPage extends Component {
               </time>
             </p>
           </div>
-          <pre className="news-desc">{this.state.describe}</pre>
+          <pre className={styles.newsDesc}>
+            {this.state.describe}
+          </pre>
         </div>
       </div>
     );

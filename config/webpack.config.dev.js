@@ -127,7 +127,11 @@ module.exports = {
       {
         test: /\.scss$/,
         include: paths.appSrc,
-        loaders: ["style", "css", "sass"]
+        loaders: [
+          'style',
+          'css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:1]',
+          'sass'
+        ]
       },
       {
         test: /\.sass$/,

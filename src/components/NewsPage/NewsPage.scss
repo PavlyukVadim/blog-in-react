@@ -1,55 +1,52 @@
-.NewsPage{
-	width: 75%;
-	margin: 0 auto;
+.newsPage {
+  width: 75%;
+  margin: 0 auto;
 
-	.title{
-		font-family: 'Arsenal', sans-serif;
-		font-size: 30px;  
-		padding: 10px;
-		color: #444;
-		font-weight: 500;
-		margin: 40px 0 20px 0;
-		text-align: center;
+  .title {
+    font-family: 'Arsenal', sans-serif;
+    font-size: 30px;
+    padding: 10px;
+    color: #444;
+    font-weight: 500;
+    margin: 40px 0 20px 0;
+    text-align: center;
 
-		&:hover {
-			color: #04a49c;
-		}
-	}
+    &:hover {
+      color: #04a49c;
+    }
+  }
 
-	div{
-		div{
-			img{
-				max-height: 500px;
-				display: block;
-			    margin: 0 auto;
-			    max-width: 100%;
-			}
-			.stats{
-				margin: 20px 0;
-				position: relative;
+  div {
+    div {
+      img {
+        max-height: 500px;
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+      }
 
-				.views{
-					i{
-						margin-right: 5px;
-					}
-				}
-				time{
-					position: absolute;
-					right: 20px;
-				}
-			}
-		}
+      .stats {
+        margin: 20px 0;
+        position: relative;
 
-		.news-desc{
-			margin: 10px 0 40px 0;
-		    white-space: pre-wrap;       
-		    white-space: -moz-pre-wrap;  
-		    white-space: -pre-wrap;      
-		    white-space: -o-pre-wrap;    
-		    word-wrap: break-word; 
-			overflow: hidden;
-		}
-		
-	}
-	
+        .views {
+          i {
+            margin-right: 5px;
+          }
+        }
+
+        time {
+          position: absolute;
+          right: 20px;
+        }
+      }
+    }
+
+    .newsDesc {
+      margin: 10px 0 40px 0;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      overflow: hidden;
+    }
+  }
 }

@@ -1,123 +1,119 @@
-.news-card {
-	margin: 20px 30px;
-	text-align: center;
-	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-	transition: box-shadow .5s;
-	/*height: 270px;*/
-	overflow: hidden;
-	position: relative;
-	background-color: #FFF;
+.newsCard {
+  margin: 20px 30px;
+  text-align: center;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  transition: box-shadow .5s;
+  overflow: hidden;
+  position: relative;
+  background-color: #FFF;
 
-	@media screen and (max-width: 768px) {
-    	/*height: 400px;*/
-	}
+  @media screen and (max-width: 768px) {
+    /*height: 400px;*/
+  }
 
-	&:hover {
-		cursor: pointer;
-		box-shadow: 0 8px 8px rgba(0, 0, 0, 0.24), 0 0 8px rgba(0, 0, 0, 0.12);
-			.bg-wrap{
-				opacity: 1;
-			}
-			.stats {
-				bottom: 3px;
-			}
-			.mob-cart-title, .cart-title {
-				color: #04a49c;
-			}
-	}	
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.24), 0 0 8px rgba(0, 0, 0, 0.12);
+    .bgWrap {
+      opacity: 1;
+    }
+    .postStats {
+      bottom: 3px;
+    }
+    .mobCartTitle,
+    .cartTitle {
+      color: #04a49c;
+    }
+  }
 
-	.stats {
-		position: absolute;
-		width: 100%;
-		height: 20px;
-		bottom: -20px;
-		color: #fff;
-		transition: bottom .2s;
-		time {
-			position: absolute;
-			right: 15px;
-		}
-		.views {
-			position: absolute;
-			left: 15px;
-			.n-views {
-				margin-left: 5px;
-			}	
-		}
-	}
-	
-	.img-part {
-		position: relative;
-		img { 
-		    width: 100%;
-		    height: 150px;
-		    max-height: 170px;
-		    object-fit: cover;
-		    @media screen and (max-width: 768px) {
-		    	height: 200px;
-	    		max-height: 220px;
-	  		}
-		}
-	}
+  .imgPart {
+    position: relative;
+    img {
+      width: 100%;
+      height: 150px;
+      max-height: 170px;
+      object-fit: cover;
+      @media screen and (max-width: 768px) {
+        height: 200px;
+        max-height: 220px;
+      }
+    }
+  }
 
-	.bg-wrap {
-		position: absolute;
-		width: 100%;
-		height: 98%;
-		transition: all .5s;
-		opacity: 0;
-		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));	
-	}
+  .mobCartTitle,
+  .cartTitle {
+    font-family: 'Arsenal', sans-serif;
+    font-size: 24px;
+    padding: 10px;
+    color: #444;
+    font-weight: 500;
 
-	.mob-cart-title, .cart-title {
-		font-family: 'Arsenal', sans-serif;
-		font-size: 24px;  
-		padding: 10px;
-		color: #444;
-		font-weight: 500;
+    &:hover {
+      color: #04a49c;
+    }
+  }
 
-		&:hover {
-			color: #04a49c;
-		}
-	}
+  .mobCartTitle {
+    padding: 30px 10px 20px 10px;
+    font-size: 28px;
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
 
-	.mob-cart-title {
-		padding: 30px 10px 20px 10px;
-		font-size: 28px;
-		@media screen and (min-width: 768px) {
-	    	display: none;
-  		}
-	}
-	
-	.cart-title {
-		@media screen and (max-width: 768px) {
-	    	display: none;
-  		}
-	}
+  .cartTitle {
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
 
-	.short-cart-desc {
-		font-family: 'Arsenal', sans-serif;
-		text-overflow: ellipsis;
-		padding: 10px;
-		position: relative;
-		@media screen and (max-width: 768px) {
-	    	margin: 10px 0;
-  		}
+  .shortCartDesc {
+    font-family: 'Arsenal', sans-serif;
+    text-overflow: ellipsis;
+    padding: 10px;
+    position: relative;
+    @media screen and (max-width: 768px) {
+      margin: 10px 0;
+    }
 
-  		&:after {
-		    content: '';
-		    position: absolute;
-		    z-index: 1;
-		    bottom: 0;
-		    left: 0;
-		    height: 23px;
-		    width: 100%;
-		    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), #fff);
-		}
-	}
-    
+    &:after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      bottom: 0;
+      left: 0;
+      height: 23px;
+      width: 100%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), #fff);
+    }
+  }
 }
 
-a {
-	text-decoration: none;
+.bgWrap {
+  position: absolute;
+  width: 100%;
+  height: 98%;
+  transition: all .5s;
+  opacity: 0;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+.postStats {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: -20px;
+  color: #fff;
+  transition: bottom .2s;
+  time {
+    position: absolute;
+    right: 15px;
+  }
+  .views {
+    position: absolute;
+    left: 15px;
+    .nViews {
+      margin-left: 5px;
+    }
+  }
 }

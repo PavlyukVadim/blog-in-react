@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './PostEditor.scss';
+import styles from './PostEditor.scss';
 
 class PostEditor extends Component {
 
@@ -60,9 +60,9 @@ class PostEditor extends Component {
 
   render() {
     return (
-    <div className="post-editor">
+    <div className={styles.postEditor}>
       <form onSubmit={this.handleSubmit}>
-        <div className="form-group">
+        <div className={styles.formGroup}>
           <input
             type="text" 
             required="required"
@@ -70,14 +70,14 @@ class PostEditor extends Component {
             onChange={this.handleTitleChange}
           />
           <label
-            className="control-label"
+            className={styles.controlLabel}
             htmlFor="input"
           >
             Title
           </label>
-          <i className="bar" />
+          <i className={styles.bar} />
         </div>
-        <div className="form-group">
+        <div className={styles.formGroup}>
           <textarea
             required="required"
             ref={(input) => { this.textInput = input; }}
@@ -85,23 +85,23 @@ class PostEditor extends Component {
             onChange={this.handleTextChange}
           />
           <label
-            className="control-label"
+            className={styles.controlLabel}
             htmlFor="textarea"
           >
             Text
           </label>
-          <i className="bar" />
+          <i className={styles.bar} />
         </div>
-        <div className="checkbox">
+        <div className={styles.checkbox}>
           <label>
             <input type="checkbox" />
-            <i className="helper" />
+            <i className={styles.helper} />
             Update date
           </label>
         </div>
-        <div className="button-container">
+        <div className={styles.buttonWrapper}>
           <button
-            className="button"
+            className={styles.button}
             type="submit"
           >
             <span>Submit</span>

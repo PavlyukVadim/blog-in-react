@@ -1,20 +1,21 @@
 header {
-	@media screen and(max-width: 768px){
-		position: fixed;
-		width: 100%;
-		top: 0;
-		z-index: 2;
-	}
+  @media screen and(max-width: 768px) {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+  }
 
-	.nav-bar +{
-		display: inline-block;
-	}
+  .navBar +{
+    display: inline-block;
+  }
 }
 
 nav ul {
-	margin-right: 30px;
-	a {
-    	display: inline-block;
-    	padding: 24px 15px;
-	}
+  margin-right: 30px;
+
+  a {
+    display: inline-block;
+    padding: 24px 15px;
+  }
 }

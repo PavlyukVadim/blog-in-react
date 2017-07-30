@@ -65,3 +65,7 @@ input[type=radio]:checked ~ .check::before {
   background: #0DFF92;
   box-sizing: content-box !important;
 }
+
+a {
+  text-decoration: none;
+}

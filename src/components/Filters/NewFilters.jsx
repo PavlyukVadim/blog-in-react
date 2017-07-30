@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './Filters.scss';
+import styles from './Filters.scss';
 
 class NewFilters extends Component {
   render() {
     return (
-      <div className="filters">
+      <div className={styles.filters}>
         <ul>
           <li>
             <input
@@ -15,7 +15,7 @@ class NewFilters extends Component {
               defaultChecked
             />
             <label htmlFor="time">Time</label>
-            <div className="check" />
+            <div className={styles.check} />
           </li>
           <li>
             <input
@@ -25,8 +25,8 @@ class NewFilters extends Component {
               onChange={this.props.setNews}
             />
             <label htmlFor="the-guardian-uk">The Guardian</label>
-            <div className="check">
-              <div className="inside" />
+            <div className={styles.check}>
+              <div className={styles.inside} />
             </div>
           </li>
         </ul>

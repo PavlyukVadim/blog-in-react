@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Sidebar.scss';
 import FilterBlog from '../../containers/FilterBlog';
 import FilterNews from '../../containers/FilterNews';
+import styles from './Sidebar.scss';
 
 class Sidebar extends Component {
 
@@ -24,11 +24,11 @@ class Sidebar extends Component {
   render() {
     return (
       <div
-        className="sidebar"
+        className={styles.sidebar}
         ref={(sidebar) => {this.sideBar = sidebar;}}
       >
         <button 
-          className="cmn-toggle-switch cmn-toggle-switch__htx"
+          className={`${styles.toggleSwitch} ${styles.toggleSwitchHT}`}
           ref={(button) => {this.buttonMenu = button;}} 
           onClick={this.openMenu}
         >
