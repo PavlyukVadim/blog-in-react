@@ -28,7 +28,7 @@ export function receiveBlogPosts(json) {
 export function fetchBlogPosts() {
   return function (dispatch) {
     dispatch(requestBlogPosts());
-    let hostname = window.location.origin;
+    let hostname = 'http://localhost:9000'; // window.location.origin;
     let myHeaders = new Headers({
       'Content-Type': 'json/plain',
       'X-Custom-Header': 'ProcessThisImmediately',

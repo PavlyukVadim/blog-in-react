@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { setDateFilter, setPopularFilter, setAlphabetFilter } from '../actions';
-import BlogFilters from '../components/BlogFilters';
+import BlogFilters from '../components/Filters/BlogFilters';
 
 const mapStateToProps = (state) => {
   return { state };

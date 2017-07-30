@@ -1,6 +1,6 @@
 import React from 'react';
 import { Preloader } from 'react-materialize';
-import './GeneralPreloader.css';
+import './GeneralPreloader.scss';
 
 export default () => {
   return (

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import './NewsCard.css';
+//import './NewsCard.css';
 
 class BlogCard extends Component {
   render() {

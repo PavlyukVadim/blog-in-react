@@ -4,7 +4,7 @@ import { fetchBlogPosts } from '../actions/blogAPIactions';
 class AdminContainer extends Component {
   constructor(props) {
     super(props);
-    this.hostname = window.location.origin;
+    this.hostname = 'http://localhost:9000'; //window.location.origin;
     this.updateBlogPosts = this.updateBlogPosts.bind(this);
   }
 

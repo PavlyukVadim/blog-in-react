@@ -7,9 +7,9 @@ import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import App from './components/App.jsx';
-import PostEditor from './components/PostEditor.jsx';
-import Admin from './components/Admin.jsx';
+import App from './components/App';
+import PostEditor from './components/PostEditor';
+import Admin from './components/Admin';
 import NewsContainer from './containers/NewsContainer';
 import BlogContainer from './containers/BlogContainer';
 import NewsPageContainer from './containers/NewsPageContainer';
@@ -18,15 +18,15 @@ import AdminContainer from './containers/AdminContainer';
 import blogApp from './reducers';
 import { fetchPostsIfNeeded } from './actions/newsAPIactions';
 import { fetchBlogPostsIfNeeded } from './actions/blogAPIactions';
-import './reset.css';
+import './stylesheets/base/main.scss';
 
-const loggerMiddleware = createLogger();
+// const loggerMiddleware = createLogger();
 
 let store = createStore(
   blogApp,
   applyMiddleware(
     thunkMiddleware, // lets us dispatch() functions
-    loggerMiddleware // neat middleware that logs actions
+    // loggerMiddleware // neat middleware that logs actions
   )
 );
 

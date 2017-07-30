@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Sidebar.css';
-import FilterBlog from './../containers/FilterBlog';
-import FilterNews from './../containers/FilterNews';
+import './Sidebar.scss';
+import FilterBlog from '../../containers/FilterBlog';
+import FilterNews from '../../containers/FilterNews';
 
 class Sidebar extends Component {
 

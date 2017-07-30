@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import GeneralPreloader from './GeneralPreloader';
-import './NewsPage.css';
+import GeneralPreloader from '../GeneralPreloader';
+import './NewsPage.scss';
 
 class NewsPage extends Component {
 

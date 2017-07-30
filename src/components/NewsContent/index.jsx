@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import GeneralPreloader from './GeneralPreloader';
-import BlogCard from './BlogCard.jsx';
-import NewsCard from './NewsCard.jsx';
-import './grid.css';
+import GeneralPreloader from '../GeneralPreloader';
+import BlogCard from '../BlogCard';
+import NewsCard from '../NewsCard';
+//import './grid.css';
 
 class NewsContent extends Component {
   render() {

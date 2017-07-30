@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Footer } from 'react-materialize';
-import './grid.css';
 
 class MyFooter extends Component {
   render() {

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import NewsPage from '../components/NewsPage.jsx';
+import NewsPage from '../components/NewsPage';
 import { updateViewsNumberInPosts } from '../actions/blogAPIactions';
 
 class NewsPageContainer extends Component {
   constructor(props) {
     super(props);
-    this.hostname = window.location.origin;
+    this.hostname = 'http://localhost:9000'; // window.location.origin;
     this.updateViewsNumber = this.updateViewsNumber.bind(this);
   }
 

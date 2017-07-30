@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './PostEditor.css';
+import './PostEditor.scss';
 
 class PostEditor extends Component {
 
