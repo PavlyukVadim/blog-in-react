@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import NewsContent from '../components/NewsContent';
+import PostCards from '../components/PostCards';
 
 const mapStateToProps = (state) => {
   return {
@@ -9,16 +9,16 @@ const mapStateToProps = (state) => {
         title: item.title,
         describe: item.description,
         image: item.urlToImage,
-        link: item.url
+        link: item.url,
       }  
     }),
     type: 'news',
-    isFetching: state.articlesBySource[state.selectedSource].isFetching
+    isFetching: state.articlesBySource[state.selectedSource].isFetching,
   }
 }
 
 const NewsContainer = connect(
-  mapStateToProps
-)(NewsContent)
+  mapStateToProps,
+)(PostCards);
 
 export default NewsContainer;

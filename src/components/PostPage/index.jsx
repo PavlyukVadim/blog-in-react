@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import GeneralPreloader from '../GeneralPreloader';
-import styles from './NewsPage.scss';
+import styles from './PostPage.scss';
 
-class NewsPage extends Component {
+class PostPage extends Component {
 
   constructor(props) {
     super(props);
@@ -26,7 +26,7 @@ class NewsPage extends Component {
     }
     
     return (
-      <div className={styles.newsPage}>
+      <div className={styles.postPage}>
         <div>
           <p className={styles.title}>
             {this.state.title}
@@ -56,4 +56,4 @@ class NewsPage extends Component {
   }
 }
 
-export default NewsPage;
+export default PostPage;

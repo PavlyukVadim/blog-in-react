@@ -31,7 +31,7 @@ class AdminContainer extends Component {
                 headers: myHeaders,
                 body: JSON.stringify(data),
                 mode: 'cors',
-                cache: 'default' 
+                cache: 'default',
               }).then(response => response.json())
     },
     getPostById: (id) => {
@@ -43,7 +43,7 @@ class AdminContainer extends Component {
                 method: 'GET',
                 headers: myHeaders,
                 mode: 'cors',
-                cache: 'default'
+                cache: 'default',
               }).then(response => response.json())
     },
     updatePostById: (id, data) => {
@@ -56,7 +56,7 @@ class AdminContainer extends Component {
                 headers: myHeaders,
                 body: JSON.stringify(data),
                 mode: 'cors',
-                cache: 'default' 
+                cache: 'default',
               }).then(response => response.json())
     },
 
@@ -69,7 +69,7 @@ class AdminContainer extends Component {
                 method: 'DELETE',
                 headers: myHeaders,
                 mode: 'cors',
-                cache: 'default' })   
+                cache: 'default', })
               .then(response => response.json())
     }
   };
@@ -81,7 +81,7 @@ class AdminContainer extends Component {
   render() {
     return (
       <div className="wrapper">
-        { React.cloneElement(this.props.children, { APIAccess: this.APIAccess, updateBlogPosts: this.updateBlogPosts }) }
+        {React.cloneElement(this.props.children, {APIAccess: this.APIAccess, updateBlogPosts: this.updateBlogPosts})}
       </div>
     );
   }
@@ -90,5 +90,5 @@ class AdminContainer extends Component {
 export default AdminContainer;
 
 AdminContainer.contextTypes = {
-  store: React.PropTypes.object.isRequired
+  store: React.PropTypes.object.isRequired,
 };

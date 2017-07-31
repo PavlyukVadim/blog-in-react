@@ -12,7 +12,7 @@ import PostEditor from './components/PostEditor';
 import Admin from './components/Admin';
 import NewsContainer from './containers/NewsContainer';
 import BlogContainer from './containers/BlogContainer';
-import NewsPageContainer from './containers/NewsPageContainer';
+import PostPageContainer from './containers/PostPageContainer';
 import AdminContainer from './containers/AdminContainer';
 
 import blogApp from './reducers';
@@ -38,7 +38,7 @@ ReactDOM.render(
     <Router history={ browserHistory }>
       <Route path='/' component={App}>
         <IndexRoute component={BlogContainer} />
-        <Route path='posts/:postId' component={NewsPageContainer} />
+        <Route path='posts/:postId' component={PostPageContainer} />
         <Route path='news' component={NewsContainer} />
         <Route path='admin' component={AdminContainer}>
           <IndexRoute component={Admin} />

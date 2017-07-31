@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import GeneralPreloader from '../GeneralPreloader';
 import PostCard from '../PostCard';
 
-class NewsContent extends Component {
+class PostCards extends Component {
   render() {
     let cards;
     if (this.props.isFetching) {
@@ -26,4 +26,4 @@ class NewsContent extends Component {
   }
 }
 
-export default NewsContent;
+export default PostCards;

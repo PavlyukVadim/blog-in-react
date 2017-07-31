@@ -3,8 +3,8 @@ import { fetchPostsIfNeeded } from '../actions/newsAPIactions.js';
 import NewFilters from '../components/Filters/NewFilters';
 
 const mapStateToProps = (state) => {
-  return { 
-    state
+  return {
+    state,
   };
 }
 
@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const FilterNews = connect(
   mapStateToProps,
-  mapDispatchToProps
-)(NewFilters)
+  mapDispatchToProps,
+)(NewFilters);
 
 export default FilterNews;

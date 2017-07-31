@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import NewsPage from '../components/NewsPage';
+import PostPage from '../components/PostPage';
 import { updateViewsNumberInPosts } from '../actions/blogAPIactions';
 
-class NewsPageContainer extends Component {
+class PostPageContainer extends Component {
   constructor(props) {
     super(props);
     this.hostname = 'http://localhost:9000'; // window.location.origin;
@@ -19,7 +19,7 @@ class NewsPageContainer extends Component {
           method: 'GET',
           headers: myHeaders,
           mode: 'cors',
-          cache: 'default' 
+          cache: 'default',
         }
       ).then(response => response.json())
 	};
@@ -35,7 +35,7 @@ class NewsPageContainer extends Component {
           headers: myHeaders,
           body: JSON.stringify(data),
           mode: 'cors',
-          cache: 'default'
+          cache: 'default',
         }
       ).then(response => response.json())
     }
@@ -47,7 +47,7 @@ class NewsPageContainer extends Component {
   render() {
     return (
       <div className="grid full-grid">
-        <NewsPage
+        <PostPage
           postId={this.props.params.postId} 
           getPostById={this.getPostById}
           updatePostById={this.updatePostById}
@@ -58,8 +58,8 @@ class NewsPageContainer extends Component {
   }
 }
 
-export default NewsPageContainer; 
+export default PostPageContainer; 
 
-NewsPageContainer.contextTypes = {
-  store: React.PropTypes.object.isRequired
+PostPageContainer.contextTypes = {
+  store: React.PropTypes.object.isRequired,
 };

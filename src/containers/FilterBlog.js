@@ -3,7 +3,9 @@ import { setDateFilter, setPopularFilter, setAlphabetFilter } from '../actions';
 import BlogFilters from '../components/Filters/BlogFilters';
 
 const mapStateToProps = (state) => {
-  return { state };
+  return { 
+    state,
+  };
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -22,7 +24,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const FilterBlog = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(BlogFilters);
 
 export default FilterBlog;

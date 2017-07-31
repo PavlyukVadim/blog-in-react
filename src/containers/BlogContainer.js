@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import NewsContent from '../components/NewsContent';
+import PostCards from '../components/PostCards';
 
 const sortByDate = (a, b) => b.date - a.date;
 const sortByPopular = (a, b) => b.views - a.views;
@@ -25,7 +25,7 @@ const mapStateToProps = (state) => {
 }
 
 const BlogContainer = connect(
-  mapStateToProps
-)(NewsContent)
+  mapStateToProps,
+)(PostCards);
 
 export default BlogContainer;
