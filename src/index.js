@@ -8,12 +8,13 @@ import createLogger from 'redux-logger';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import App from './components/App';
+import Blog from './Blog';
+import News from './News';
+import Admin from './Admin';
+
 import PostEditor from './components/PostEditor';
-import Admin from './components/Admin';
-import NewsContainer from './containers/NewsContainer';
-import BlogContainer from './containers/BlogContainer';
-import PostPageContainer from './containers/PostPageContainer';
-import AdminContainer from './containers/AdminContainer';
+import AdminPosts from './components/AdminPosts';
+// import PostPageContainer from './containers/PostPageContainer';
 
 import blogApp from './reducers';
 import { fetchPostsIfNeeded } from './actions/newsAPIactions';
@@ -37,11 +38,11 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={ browserHistory }>
       <Route path='/' component={App}>
-        <IndexRoute component={BlogContainer} />
-        <Route path='posts/:postId' component={PostPageContainer} />
-        <Route path='news' component={NewsContainer} />
-        <Route path='admin' component={AdminContainer}>
-          <IndexRoute component={Admin} />
+        <IndexRoute component={Blog} />
+        {/* <Route path='posts/:postId' component={PostPageContainer} /> */}
+        <Route path='news' component={News} />
+        <Route path='admin' component={Admin}>
+          <IndexRoute component={AdminPosts} />
           <Route path='edit' component={PostEditor} />
           <Route path='edit/:postId' component={PostEditor} />
         </Route>

@@ -14,7 +14,7 @@ class PostPage extends Component {
       .then(json => this.setState(json));
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.props.updatePostById(this.props.postId, Object.assign(this.state, {'views': this.state.views + 1}))
       .then(() => this.props.updateViewsNumber(this.props.postId));
   }

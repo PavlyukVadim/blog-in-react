@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import PostCards from '../components/PostCards';
+import { fetchPostsIfNeeded } from '../actions/newsAPIactions.js';
+import NewsPage from './components/NewsPage';
 
 const mapStateToProps = (state) => {
   return {
@@ -17,8 +18,18 @@ const mapStateToProps = (state) => {
   }
 }
 
-const NewsContainer = connect(
-  mapStateToProps,
-)(PostCards);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setNews: (e) => {
+      let source = e.target.id;
+      dispatch(fetchPostsIfNeeded(source));
+    }
+  }
+}
 
-export default NewsContainer;
+const News = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(NewsPage);
+
+export default News;

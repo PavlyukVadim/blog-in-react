@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import GeneralPreloader from '../GeneralPreloader';
-import styles from './Admin.scss';
+import styles from './AdminPosts.scss';
 
 class PostElement extends Component {
   render() {
@@ -49,7 +49,7 @@ class PostElement extends Component {
   }
 }
 
-class Admin extends Component {
+class AdminPosts extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -97,4 +97,4 @@ class Admin extends Component {
   }
 }
 
-export default Admin;
+export default AdminPosts;

@@ -1,5 +1,7 @@
 import { connect } from 'react-redux';
-import PostCards from '../components/PostCards';
+import { setDateFilter, setPopularFilter, setAlphabetFilter } from './actions';
+import BlogPage from './components/BlogPage';
+
 
 const sortByDate = (a, b) => b.date - a.date;
 const sortByPopular = (a, b) => b.views - a.views;
@@ -24,8 +26,23 @@ const mapStateToProps = (state) => {
   }
 }
 
-const BlogContainer = connect(
-  mapStateToProps,
-)(PostCards);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setPopular: () => {
+      dispatch(setPopularFilter());
+    },
+    setDate: () => {
+      dispatch(setDateFilter());
+    },
+    setAlphabet: () => {
+      dispatch(setAlphabetFilter());
+    }
+  }
+}
 
-export default BlogContainer;
+const Blog = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(BlogPage);
+
+export default Blog;

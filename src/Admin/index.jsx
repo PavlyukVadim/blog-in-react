@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { fetchBlogPosts } from '../actions/blogAPIactions';
 
-class AdminContainer extends Component {
+class Admin extends Component {
   constructor(props) {
     super(props);
     this.hostname = 'http://localhost:9000'; //window.location.origin;
@@ -87,8 +87,8 @@ class AdminContainer extends Component {
   }
 }
 
-export default AdminContainer;
+export default Admin;
 
-AdminContainer.contextTypes = {
+Admin.contextTypes = {
   store: React.PropTypes.object.isRequired,
 };

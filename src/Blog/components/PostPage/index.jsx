@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PostPage from '../components/PostPage';
 import { updateViewsNumberInPosts } from '../actions/blogAPIactions';
 
-class PostPageContainer extends Component {
+class PostPage extends Component {
   constructor(props) {
     super(props);
     this.hostname = 'http://localhost:9000'; // window.location.origin;
@@ -30,7 +30,7 @@ class PostPageContainer extends Component {
       'Content-Type': 'application/json',
     });
 
-    return fetch(`${this.hostname}/posts/${id}`,{
+    return fetch(`${this.hostname}/posts/${id}`, {
           method: 'PUT', 
           headers: myHeaders,
           body: JSON.stringify(data),
@@ -58,8 +58,8 @@ class PostPageContainer extends Component {
   }
 }
 
-export default PostPageContainer; 
+export default PostPage; 
 
-PostPageContainer.contextTypes = {
+PostPage.contextTypes = {
   store: React.PropTypes.object.isRequired,
 };
