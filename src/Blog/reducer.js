@@ -1,6 +1,18 @@
-import { REQUEST_BLOG_POSTS, RECEIVE_BLOG_POSTS, UPDATE_VIEWS_NUMBER } from '../actions/blogAPIactions';
+import {
+  FILTER_DATE,
+  FILTER_POPULAR,
+  FILTER_ALPHABET,
+  REQUEST_BLOG_POSTS,
+  RECEIVE_BLOG_POSTS,
+  UPDATE_VIEWS_NUMBER,
+} from './actions';
 
-function posts(state = { isFetching: false, items: [] }, action) {
+const defaultState = {
+  isFetching: false,
+  items: [],
+};
+
+const posts = (state = defaultState, action) => {
   switch (action.type) {
     case REQUEST_BLOG_POSTS:
       return Object.assign({}, state, {
@@ -14,9 +26,9 @@ function posts(state = { isFetching: false, items: [] }, action) {
       });
     default: return state;
   }
-}
+};
 
-function blogPosts(state = {}, action) {
+export const blogPosts = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_BLOG_POSTS:
     case REQUEST_BLOG_POSTS:
@@ -24,13 +36,20 @@ function blogPosts(state = {}, action) {
         posts: posts(state['blogPosts'], action)
       })
     case UPDATE_VIEWS_NUMBER:
-      let newState = Object.assign({}, state);
+      const newState = Object.assign({}, state);
       newState.posts.items.forEach((post) => { 
         if( Number(post.id) === Number(action.id) ) post.views++;
       });
-      return newState    
+      return newState
     default: return state
   }
-}
+};
 
-export default blogPosts;
+export const visibilityFilter = (state = FILTER_DATE, action) => {
+  switch (action.type) {
+    case FILTER_DATE: return 'FILTER_DATE';
+    case FILTER_POPULAR: return 'FILTER_POPULAR';
+    case FILTER_ALPHABET: return 'FILTER_ALPHABET';
+    default: return state
+  }
+};

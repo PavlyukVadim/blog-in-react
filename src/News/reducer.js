@@ -1,6 +1,15 @@
-import { REQUEST_POSTS, RECEIVE_POSTS } from '../actions/newsAPIactions';
+import {
+  REQUEST_POSTS,
+  RECEIVE_POSTS,
+  SELECT_SOURCE,
+} from './actions';
 
-function posts(state = { isFetching: false, items: [] }, action) {
+const defaultState = {
+  isFetching: false,
+  items: [],
+};
+
+const posts = (state = defaultState, action) => {
   switch (action.type) {
     case REQUEST_POSTS:
       return Object.assign({}, state, {
@@ -14,9 +23,9 @@ function posts(state = { isFetching: false, items: [] }, action) {
       });
     default: return state;
   }
-}
+};
 
-function articlesBySource(state = {}, action) {
+export const articlesBySource = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_POSTS:
     case REQUEST_POSTS:
@@ -25,6 +34,11 @@ function articlesBySource(state = {}, action) {
       })
     default: return state
   }
-}
+};
 
-export default articlesBySource;
+export const selectedSource = (state = 'time', action) => {
+  switch (action.type) {
+    case SELECT_SOURCE: return action.source
+    default: return state
+  }
+};
