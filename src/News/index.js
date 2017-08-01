@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchPostsIfNeeded } from '../actions/newsAPIactions.js';
+import { fetchPostsIfNeeded } from './actions';
 import NewsPage from './components/NewsPage';
 
 const mapStateToProps = (state) => {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import PostPage from '../components/PostPage';
-import { updateViewsNumberInPosts } from '../actions/blogAPIactions';
+import PostPage from './../../components/PostPage';
+import { updateViewsNumberInPosts } from '../actions';
 
-class PostPage extends Component {
+class Post extends Component {
   constructor(props) {
     super(props);
     this.hostname = 'http://localhost:9000'; // window.location.origin;
@@ -58,8 +58,8 @@ class PostPage extends Component {
   }
 }
 
-export default PostPage; 
+export default Post; 
 
-PostPage.contextTypes = {
+Post.contextTypes = {
   store: React.PropTypes.object.isRequired,
 };

@@ -1,7 +1,10 @@
 import { connect } from 'react-redux';
-import { setDateFilter, setPopularFilter, setAlphabetFilter } from './actions';
 import BlogPage from './components/BlogPage';
-
+import {
+  setDateFilter,
+  setPopularFilter,
+  setAlphabetFilter
+} from './actions';
 
 const sortByDate = (a, b) => b.date - a.date;
 const sortByPopular = (a, b) => b.views - a.views;
@@ -13,18 +16,17 @@ const getSortedNews = (sortBy, NEWS) => {
     case 'FILTER_ALPHABET': return [].concat(NEWS.sort(sortByAlphabet));
     default: return NEWS.sort(sortByDate);
   }
-}
+};
 
 const mapStateToProps = (state) => {
   const notEmptyPosts = state.blogPosts.posts.items.filter((item) => item !== null);
   notEmptyPosts.forEach((post) => post.link = `posts/${post.id}`);
-
   return {
     news: getSortedNews(state.visibilityFilter, notEmptyPosts),
     type: 'blog',
     isFetching: state.blogPosts.posts.isFetching,
   }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -36,9 +38,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     setAlphabet: () => {
       dispatch(setAlphabetFilter());
-    }
+    },
   }
-}
+};
 
 const Blog = connect(
   mapStateToProps,

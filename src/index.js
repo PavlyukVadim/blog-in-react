@@ -9,16 +9,14 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import App from './components/App';
 import Blog from './Blog';
+import Post from './Blog/Post';
+import { fetchBlogPostsIfNeeded } from './Blog/actions';
 import News from './News';
+import { fetchPostsIfNeeded } from './News/actions';
 import Admin from './Admin';
-
-import PostEditor from './components/PostEditor';
 import AdminPosts from './components/AdminPosts';
-// import PostPageContainer from './containers/PostPageContainer';
-
-import blogApp from './reducers';
-import { fetchPostsIfNeeded } from './actions/newsAPIactions';
-import { fetchBlogPostsIfNeeded } from './actions/blogAPIactions';
+import PostEditor from './components/PostEditor';
+import blogApp from './rootReducer';
 import './stylesheets/base/main.scss';
 
 // const loggerMiddleware = createLogger();
@@ -39,7 +37,7 @@ ReactDOM.render(
     <Router history={ browserHistory }>
       <Route path='/' component={App}>
         <IndexRoute component={Blog} />
-        {/* <Route path='posts/:postId' component={PostPageContainer} /> */}
+        <Route path='posts/:postId' component={Post} />
         <Route path='news' component={News} />
         <Route path='admin' component={Admin}>
           <IndexRoute component={AdminPosts} />

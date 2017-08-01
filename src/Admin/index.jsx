@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchBlogPosts } from '../actions/blogAPIactions';
+import { fetchBlogPosts } from './../Blog/actions';
 
 class Admin extends Component {
   constructor(props) {
