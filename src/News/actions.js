@@ -4,40 +4,41 @@ export const REQUEST_POSTS = 'REQUEST_POSTS';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 export const SELECT_SOURCE = 'SELECT_SOURCE';
 
-export function selectSource(source) {
+export const selectSource = (source) => {
   return {
     type: SELECT_SOURCE,
     source,
   }
 }
 
-export function requestPosts(source) {
+export const requestPosts = (source) => {
   return {
     type: REQUEST_POSTS,
     source,
   }
 }
 
-export function receivePosts(source, json) {
+export const receivePosts = (source, json) => {
   return {
     type: RECEIVE_POSTS,
     source,
     posts: json.articles,
-    receivedAt: Date.now()
+    receivedAt: Date.now(),
   }
 }
 
-// API key b6928391aad342c19c8f1a90c13c4571
-export function fetchPosts(source) {
-  return function (dispatch) {
+const APIkey = 'b6928391aad342c19c8f1a90c13c4571';
+export const fetchPosts = (source) => {
+  return (dispatch) => {
     dispatch(requestPosts(source));
-    return fetch(`https://newsapi.org/v1/articles?source=${source}&sortBy=latest&apiKey=b6928391aad342c19c8f1a90c13c4571`)
+    const link = `https://newsapi.org/v1/articles?source=${source}&sortBy=latest&apiKey=${APIkey}`;
+    return fetch(link)
       .then(response => response.json())
       .then(json => dispatch(receivePosts(source, json)))
   }
 }
 
-function shouldFetchPosts(state, source) {
+const shouldFetchPosts = (state, source) => {
   const posts = state.articlesBySource[source];
   if (!posts) {
     return true;
@@ -46,7 +47,7 @@ function shouldFetchPosts(state, source) {
   }
 }
 
-export function fetchPostsIfNeeded(source) {
+export const fetchPostsIfNeeded = (source) => {
   return (dispatch, getState) => {
     dispatch(selectSource(source));
     if (shouldFetchPosts(getState(), source)) {
