@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PostPage from './../../components/PostPage';
+import PostPage from './../components/PostPage';
 import { updateViewsNumberInPosts } from '../actions';
 
 class Post extends Component {

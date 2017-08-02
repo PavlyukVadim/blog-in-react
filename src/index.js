@@ -14,8 +14,8 @@ import { fetchBlogPostsIfNeeded } from './Blog/actions';
 import News from './News';
 import { fetchPostsIfNeeded } from './News/actions';
 import Admin from './Admin';
-import AdminPosts from './components/AdminPosts';
-import PostEditor from './components/PostEditor';
+import AdminPosts from './Admin/components/AdminPosts';
+import PostEditor from './Admin/components/PostEditor';
 import blogApp from './rootReducer';
 import './stylesheets/base/main.scss';
 

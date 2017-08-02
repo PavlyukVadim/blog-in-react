@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GeneralPreloader from '../GeneralPreloader';
+import GeneralPreloader from './../../../components/GeneralPreloader';
 import styles from './PostPage.scss';
 
 class PostPage extends Component {

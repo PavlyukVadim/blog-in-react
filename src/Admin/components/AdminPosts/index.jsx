@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import GeneralPreloader from '../GeneralPreloader';
+import GeneralPreloader from '../../../components/GeneralPreloader';
 import styles from './AdminPosts.scss';
 
 class PostElement extends Component {
