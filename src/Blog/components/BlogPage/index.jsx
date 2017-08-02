@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PostCards from './../../../components/PostCards';
 import Sidebar from './../../../components/Sidebar';
-import BlogFilters from './../../../components/Filters/BlogFilters';
+import Filters from './../../../components/Filters';
 
 class BlogPage extends Component {
   render() {
@@ -21,7 +21,7 @@ class BlogPage extends Component {
           isFetching={isFetching}
         />
         <Sidebar>
-          <BlogFilters
+          <Filters
             news={news}
             type={type}
             isFetching={isFetching}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PostCards from './../../../components/PostCards';
 import Sidebar from './../../../components/Sidebar';
-import NewsFilters from './../../../components/Filters/NewFilters';
+import Filters from './../../../components/Filters';
 
 class NewsPage extends Component {
   render() {
@@ -19,7 +19,7 @@ class NewsPage extends Component {
           isFetching={isFetching}
         />
         <Sidebar>
-          <NewsFilters
+          <Filters
             news={news}
             type={type}
             isFetching={isFetching}
