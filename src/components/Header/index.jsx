@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { Navbar, NavItem } from 'react-materialize';
+import config from './../../config';
 import styles from './Header.scss';
 
 class Header extends Component {
   render() {
+    const links = config.navbar.map((item) => {
+      return (
+        <Link to={item.link}>
+          {item.title}
+        </Link>
+      );
+    });
+
     return (
       <header>
         <Navbar
@@ -12,9 +21,7 @@ class Header extends Component {
           brand='Blog'
           right
         >
-          <Link to="/">Blog</Link>
-          <Link to="/news">News</Link>
-          <Link to="/admin">Admin</Link>
+          {links}
         </Navbar>
       </header>
     );
