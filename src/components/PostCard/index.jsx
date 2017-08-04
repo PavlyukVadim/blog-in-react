@@ -8,7 +8,6 @@ class PostCard extends Component {
       <div className="gitem-lg-3 gitem-md-4 gitem-sm-6">
         <a
           href={this.props.info.link}
-          target='_blank'
         >
           <div className={styles.postCard}>
             <p className={styles.mobCartTitle}>

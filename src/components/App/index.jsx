@@ -11,8 +11,6 @@ class App extends Component {
         <Header/>
         <main>
           {this.props.children}
-          {/*!/posts|admin|edit/.test(this.props.location.pathname) &&
-          <Sidebar path={this.props.location.pathname}/>*/}
         </main>
         <Footer/>
       </div>

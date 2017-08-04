@@ -14,22 +14,26 @@ class BlogPage extends Component {
       setAlphabet,
     } = this.props;
     return (
-      <div>
-        <PostCards
-          news={news}
-          type={type}
-          isFetching={isFetching}
-        />
-        <Sidebar>
-          <Filters
+      <div className="grid">
+        <div className="gitem-lg-10">
+          <PostCards
             news={news}
             type={type}
             isFetching={isFetching}
-            setPopular={setPopular}
-            setDate={setDate}
-            setAlphabet={setAlphabet}
           />
-        </Sidebar>
+        </div>
+        <div className="gitem-lg-2">
+          <Sidebar>
+            <Filters
+              news={news}
+              type={type}
+              isFetching={isFetching}
+              setPopular={setPopular}
+              setDate={setDate}
+              setAlphabet={setAlphabet}
+            />
+          </Sidebar>
+        </div>
       </div>
     );
   }
