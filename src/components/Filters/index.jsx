@@ -8,7 +8,6 @@ class Filters extends Component {
     const filters = config.filters[filterType].map((item) => {
       return (
         <li key={item.id}>
-          <div className={styles.check} />
           <input
             type="radio"
             id={item.id}
@@ -19,6 +18,7 @@ class Filters extends Component {
           <label htmlFor={item.id}>
             {item.label}
           </label>
+          <div className={styles.check} />
         </li>
       );
     });

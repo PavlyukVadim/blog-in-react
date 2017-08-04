@@ -53,11 +53,6 @@ table {
   box-sizing: content-box !important;
 }
 
-[type="radio"]:not(:checked)+label, [type="radio"]:checked+label {
-  padding-left: 80px;
-}
-
-
 input[type=radio] ~ .check{
   box-sizing: content-box !important;
 }
