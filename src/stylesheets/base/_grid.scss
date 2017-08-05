@@ -17,10 +17,6 @@ $items: 12;
   flex-flow: column;
 }
 
-.wrapper, .grid, .full-grid {
-  min-height: calc(100vh - 64px - 122px);
-}
-
 .grid{
   flex-flow: row wrap;
 }
