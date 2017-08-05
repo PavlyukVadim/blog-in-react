@@ -1,8 +1,10 @@
+@import './../../stylesheets/base/dimensions';
+
 main {
   display: flex;
   flex-direction: row;
   position: relative;
-  min-height: calc(100vh);
+  min-height: calc(100vh - #{$header-height} - #{$footer-height});
   background-color: rgb(245, 245, 245);
 
   .sidebar {
