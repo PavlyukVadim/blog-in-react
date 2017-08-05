@@ -1,0 +1,11 @@
+@import './../../stylesheets/base/dimensions';
+
+footer {
+  text-align: center;
+  height: $footer-height;
+  color: white;
+	background-color: #ee6e73;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
