@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { Navbar, NavItem } from 'react-materialize';
 import config from './../../config';
 import styles from './Header.scss';
 
@@ -8,21 +7,29 @@ class Header extends Component {
   render() {
     const links = config.navbar.map((item) => {
       return (
-        <Link to={item.link}>
-          {item.title}
-        </Link>
+        <div
+          className={styles.navItem}
+          key={item.title}
+        >
+          <Link to={item.link}>
+            {item.title}
+          </Link>
+        </div>
       );
     });
 
     return (
       <header>
-        <Navbar
-          className={styles.navBar}
-          brand='Blog'
-          right
-        >
-          {links}
-        </Navbar>
+        <div className={styles.navBar}>
+          <div className={styles.navBrand}>
+            <Link to='/'>
+              Blog
+            </Link>
+          </div>
+          <div className={styles.navItems}>
+            {links}
+          </div>
+        </div>
       </header>
     );
   }

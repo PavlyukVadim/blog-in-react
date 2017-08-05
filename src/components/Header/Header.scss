@@ -1,21 +1,50 @@
-header {
+@import './../../stylesheets/base/dimensions';
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  height: $header-height;
+  background-color: #ee6e73;
+
   @media screen and(max-width: 768px) {
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 2;
   }
-
-  .navBar +{
-    display: inline-block;
+  
+  .navBrand {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    margin-left: 20px;
+    
+    a {
+      color: white;
+    }
   }
-}
 
-nav ul {
-  margin-right: 30px;
+  .navItems {
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    margin-right: 20px;
 
-  a {
-    display: inline-block;
-    padding: 24px 15px;
+    .navItem {    
+      display: flex;
+      align-items: center;
+      color: white;
+      padding: 0 20px;
+      transition: 0.3s;
+
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      a {
+        color: white;
+      }
+    }
   }
 }
