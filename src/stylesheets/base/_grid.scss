@@ -12,19 +12,11 @@ $breakpoints: (
 
 $items: 12;
 
-.grid, .full-grid {
-  display: flex;
-  flex-flow: column;
-  width: 100%;
-}
-
 .grid {
+  display: flex;
   flex-flow: row wrap;
-}
-
-.full-grid {
-  align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 @each $key, $value in $breakpoints {

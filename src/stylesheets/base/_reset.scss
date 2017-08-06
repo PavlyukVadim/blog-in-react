@@ -43,11 +43,6 @@ table {
   border-spacing: 0;
 }
 
-.wrapper{
-  position: relative;
-  width: 100%;
-}
-
 [type="radio"]+label:before, [type="radio"]+label:after {
   display: none;
   box-sizing: content-box !important;

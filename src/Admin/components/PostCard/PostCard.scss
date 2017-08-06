@@ -1,4 +1,4 @@
-.adminPosts {
+.PostCard {
   margin: 30px 0;
   padding: 20px;
   margin: 20px 30px;
@@ -81,26 +81,5 @@
         }
       }
     }
-  }
-}
-
-.buttonAdd {
-  background: #ff4444;
-  width: 70px;
-  height: 70px;
-  position: fixed;
-  right: 4%;
-  bottom: 100px;
-  border-radius: 50%;
-  box-shadow: 0px 0px 7px #555;
-  color: #fff;
-  font-size: 42px;
-  line-height: 65px;
-  text-align: center;
-  transition: 300ms ease;
-
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0px 2px 20px #777;
   }
 }

@@ -80,8 +80,14 @@ class Admin extends Component {
 
   render() {
     return (
-      <div className="wrapper">
-        {React.cloneElement(this.props.children, {APIAccess: this.APIAccess, updateBlogPosts: this.updateBlogPosts})}
+      <div>
+        {React.cloneElement(
+          this.props.children, 
+          {
+            APIAccess: this.APIAccess,
+            updateBlogPosts: this.updateBlogPosts,
+          }
+        )}
       </div>
     );
   }
