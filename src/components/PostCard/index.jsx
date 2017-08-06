@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import styles from './PostCard.scss';
 
 class PostCard extends Component {
@@ -6,9 +7,7 @@ class PostCard extends Component {
     this.date = new Date(this.props.info.date);
     return (
       <div className="gitem-lg-3 gitem-md-4 gitem-sm-6">
-        <a
-          href={this.props.info.link}
-        >
+        <Link to={this.props.info.link}>
           <div className={styles.postCard}>
             <p className={styles.mobCartTitle}>
               {this.props.info.title}
@@ -42,7 +41,7 @@ class PostCard extends Component {
               dangerouslySetInnerHTML={{__html: this.props.info.describe.slice(0, 70) + '...'}}
             />
           </div>
-        </a>
+        </Link>
       </div>
     );
   }
