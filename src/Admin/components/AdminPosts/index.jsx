@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import Moment from 'react-moment';
 import GeneralPreloader from '../../../components/GeneralPreloader';
 import styles from './AdminPosts.scss';
 
 class PostElement extends Component {
   render() {
-    this.date = new Date(this.props.post.date);
+    const date = new Date(this.props.post.date);
     return (
       <div className={styles.adminPosts}>
         <div>
@@ -21,12 +22,9 @@ class PostElement extends Component {
                   {this.props.post.views}
                 </span>
               </span>
-              <time dateTime={this.props.post.date}>
-                { 
-                  ('0' + this.date.getDate()).slice(-2) + '/' + ('0' + (this.date.getMonth() + 1)).slice(-2) + '/' +
-                  this.date.getFullYear() + ' '
-                }
-              </time>
+              <Moment format="DD/MM/YYYY">
+                {date}
+              </Moment>
             </p> 
             <ul className={styles.controlPanel}>
               <li

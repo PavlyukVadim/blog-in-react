@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import Moment from 'react-moment';
 import styles from './PostCard.scss';
 
 class PostCard extends Component {
@@ -16,7 +17,7 @@ class PostCard extends Component {
               <div className={styles.bgWrap} />
               <img
                 src={this.props.info.image}
-                alt="news"
+                alt="post"
               />
               { this.props.info.views && this.props.info.date &&
                 <p className={styles.postStats}>
@@ -25,11 +26,10 @@ class PostCard extends Component {
                     <span className={styles.nViews}>
                       {this.props.info.views}
                     </span>
-                  </span> 
-                  <time dateTime={this.props.info.date}>
-                    {('0' + this.date.getDate()).slice(-2) + '/' + ('0'+(this.date.getMonth()+1)).slice(-2) + '/' +
-                  this.date.getFullYear() + ' '}
-                  </time>
+                  </span>
+                  <Moment format="DD/MM/YYYY">
+                    {this.props.info.date}
+                  </Moment>
                 </p>
               }
             </div>

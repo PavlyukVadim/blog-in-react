@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Moment from 'react-moment';
 import GeneralPreloader from './../../../components/GeneralPreloader';
 import styles from './PostPage.scss';
 
@@ -23,7 +24,7 @@ class PostPage extends Component {
   }
 
   render() {
-    this.date = new Date(this.state.date);
+    const date = new Date(this.state.date);
     if (!this.state.title) {
       return <GeneralPreloader />
     }
@@ -44,10 +45,9 @@ class PostPage extends Component {
                   {this.state.views}
                 </span>
               </span>
-              <time dateTime={this.state.date}>
-                {('0' + this.date.getDate()).slice(-2) + '/' + ('0'+(this.date.getMonth() + 1)).slice(-2) + '/' +
-                this.date.getFullYear() + ' '}
-              </time>
+              <Moment format="DD/MM/YYYY">
+                {date}
+              </Moment>
             </p>
           </div>
           <pre className={styles.newsDesc}>
