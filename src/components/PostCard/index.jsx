@@ -7,7 +7,7 @@ class PostCard extends Component {
   render() {
     this.date = new Date(this.props.info.date);
     return (
-      <div className="gitem-lg-3 gitem-md-4 gitem-sm-6">
+      <div className="col-md-3">
         <Link to={this.props.info.link}>
           <div className={styles.postCard}>
             <p className={styles.mobCartTitle}>

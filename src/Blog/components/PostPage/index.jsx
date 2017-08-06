@@ -30,7 +30,7 @@ class PostPage extends Component {
     }
     
     return (
-      <div className={`${styles.postPage} gitem-lg-9`}>
+      <div className={`${styles.postPage} col-lg-9`}>
         <div>
           <p className={styles.title}>
             {this.state.title}

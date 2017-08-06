@@ -12,15 +12,15 @@ class NewsPage extends Component {
       setNews,
     } = this.props;
     return (
-      <div className="grid">
-        <div className="gitem-lg-10">
+      <div className="row">
+        <div className="col-lg-10">
           <PostCards
             news={news}
             type={type}
             isFetching={isFetching}
           />
         </div>
-        <div className="gitem-lg-2">
+        <div className="col-lg-2">
           <Sidebar>
             <Filters
               news={news}

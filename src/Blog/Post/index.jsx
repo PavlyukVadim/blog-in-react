@@ -46,7 +46,7 @@ class Post extends Component {
 
   render() {
     return (
-      <div className="grid full-grid">
+      <div className="row">
         <PostPage
           postId={this.props.params.postId} 
           getPostById={this.getPostById}

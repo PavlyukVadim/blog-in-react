@@ -19,7 +19,7 @@ class PostCards extends Component {
     }
 
     return (
-      <div className="grid">
+      <div className="row">
         {cards}
       </div>
     );

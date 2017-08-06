@@ -30,7 +30,7 @@ class PostCards extends Component {
             return (
             <div
               key={post.id}
-              className="gitem-lg-3"
+              className="col-lg-3"
             >
               <PostCard
                 post={post}
@@ -43,7 +43,7 @@ class PostCards extends Component {
       }
 
     return (
-      <div className="grid">
+      <div className="row">
         {postCards}
         <Link
           className={styles.buttonAdd}

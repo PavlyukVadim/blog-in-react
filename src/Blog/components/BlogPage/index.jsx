@@ -14,15 +14,17 @@ class BlogPage extends Component {
       setAlphabet,
     } = this.props;
     return (
-      <div className="grid">
-        <div className="gitem-lg-10">
-          <PostCards
-            news={news}
-            type={type}
-            isFetching={isFetching}
-          />
+      <div className="row">
+        <div className="col-lg-10">
+          <div>
+            <PostCards
+              news={news}
+              type={type}
+              isFetching={isFetching}
+            />
+          </div>
         </div>
-        <div className="gitem-lg-2">
+        <div className="col-lg-2">
           <Sidebar>
             <Filters
               news={news}
