@@ -1,5 +1,7 @@
+@import './../../stylesheets/base/variables';
+
 .sidebar {
-  background-color: rgb(33, 33, 33);
+  background-color: $primary-color;
   height: 100%;
   width: 100%;
 

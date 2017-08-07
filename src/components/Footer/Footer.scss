@@ -1,10 +1,10 @@
-@import './../../stylesheets/base/dimensions';
+@import './../../stylesheets/base/variables';
 
 footer {
   text-align: center;
   height: $footer-height;
-  color: white;
-	background-color: #ee6e73;
+  color: $tertiary-color;
+  background-color: $secondary-color;
   display: flex;
   justify-content: center;
   align-items: center;

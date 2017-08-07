@@ -1,4 +1,5 @@
 @import url('http://fonts.googleapis.com/css?family=Lato');
+@import './../../stylesheets/base/variables';
 
 .filters {
   @media screen and(max-width: 768px) {
@@ -10,13 +11,13 @@
     width: 100%;
 
     li {
-      color: #AAAAAA;
+      color: $primary-color;
       display: flex;
       justify-content: flex-end;
       flex-direction: row-reverse;
       align-items: center;
       position: relative;
-      border-bottom: 1px solid #111111;
+      border-bottom: 1px solid $secondary-color;
 
       &:hover {
         label {
@@ -25,6 +26,9 @@
 
         .check {
           border: 3px solid #FFFFFF;
+          &::before {
+            background-color: #FFFFFF;
+          }
         }
       }
 
@@ -37,19 +41,20 @@
       input[type=radio] {
         &:checked {
           ~.check {
-            border: 3px solid #0DFF92;
+            border: 3px solid $tertiary-color;
             &::before {
-              background: #0DFF92;
+              background: $tertiary-color;
             }
           }
           ~label {
-            color: #0DFF92;
+            color: $tertiary-color;
           }
         }
       }
 
       label {
         display: block;
+        color: $secondary-color;
         font-weight: 300;
         padding: 15px 20px;
         margin: 10px 0;
@@ -62,10 +67,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 23px;
-        width: 23px;
+        height: 22px;
+        width: 22px;
         margin-left: 20px;
-        border: 3px solid #AAAAAA;
+        border: 3px solid $secondary-color;
         border-radius: 100%;
         z-index: 5;
         transition: border .25s linear;
@@ -75,7 +80,7 @@
           content: '';
           height: 12px;
           width: 12px;
-          background-color: #FFF;
+          background-color: $secondary-color;
           border-radius: 50%;
           transition: background 0.25s linear;
         }
@@ -95,7 +100,7 @@
     text-align: center;
     font-family: Helvetica, Arial, Sans-Serif;
     font-size: 0.85em;
-    color: #AAAAAA;
+    color: $tertiary-color;
   }
 
   .signature .much-heart {
@@ -129,7 +134,7 @@
   }
 
   a {
-    color: #AAAAAA;
+    color: $tertiary-color;
     text-decoration: none;
     font-weight: bold;
   }

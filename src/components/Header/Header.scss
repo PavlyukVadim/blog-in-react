@@ -1,10 +1,10 @@
-@import './../../stylesheets/base/dimensions';
+@import './../../stylesheets/base/variables';
 
 .navBar {
   display: flex;
   justify-content: space-between;
   height: $header-height;
-  background-color: #ee6e73;
+  background-color: $secondary-color;
 
   @media screen and(max-width: 768px) {
     position: fixed;
@@ -20,7 +20,7 @@
     margin-left: 20px;
     
     a {
-      color: white;
+      color: $tertiary-color;
     }
   }
 
@@ -43,7 +43,7 @@
 
       a {
         padding: 20px;
-        color: white;
+        color: $tertiary-color;
       }
     }
   }

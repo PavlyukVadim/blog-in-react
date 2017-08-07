@@ -1,3 +1,5 @@
+@import './../../stylesheets/base/variables';
+
 .postCard {
   margin: 20px 30px;
   text-align: center;
@@ -22,7 +24,7 @@
     }
     .mobCartTitle,
     .cartTitle {
-      color: #04a49c;
+      color: $primary-color;
     }
   }
 
@@ -49,7 +51,7 @@
     font-weight: 500;
 
     &:hover {
-      color: #04a49c;
+      color: $primary-color;
     }
   }
 
@@ -68,10 +70,12 @@
   }
 
   .shortCartDesc {
+    color: $tertiary-color;
     font-family: 'Arsenal', sans-serif;
     text-overflow: ellipsis;
     padding: 10px;
     position: relative;
+
     @media screen and (max-width: 768px) {
       margin: 10px 0;
     }

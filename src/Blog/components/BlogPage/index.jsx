@@ -15,7 +15,7 @@ class BlogPage extends Component {
     } = this.props;
     return (
       <div className="row">
-        <div className="col-lg-10">
+        <div className="col-lg-10 centered">
           <div>
             <PostCards
               news={news}
