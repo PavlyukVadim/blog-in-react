@@ -23,11 +23,20 @@ $items: 12;
   flex: 1 0 0px;
 }
 
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  flex: 1 0 0px; 
+}
+
 @each $key,
 $value in $breakpoints {
   @for $i from 1 through $items {
     .col-#{$key}-#{$i} {
       display: flex;
+      max-width: 100%;
       flex: 0 0 100%;
     }
   }
