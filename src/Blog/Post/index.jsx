@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import PostPage from './../components/PostPage';
 import { updateViewsNumberInPosts } from '../actions';
 
@@ -9,36 +10,15 @@ class Post extends Component {
     this.updateViewsNumber = this.updateViewsNumber.bind(this);
   }
 
-	getPostById = (id) => {
-		let myHeaders = new Headers({
-	    'Content-Type': 'json/plain',
-	    'X-Custom-Header': 'ProcessThisImmediately',
-		});
-		
-    return fetch(`${this.hostname}/posts/${id}`, {
-          method: 'GET',
-          headers: myHeaders,
-          mode: 'cors',
-          cache: 'default',
-        }
-      ).then(response => response.json())
-	};
+  getPostById = (id) => {
+    return axios.get(`${this.hostname}/posts/${id}`)
+      .then(result => result.data);
+  };
 
   updatePostById = (id, data) => {
-    let myHeaders = new Headers({
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-    });
-
-    return fetch(`${this.hostname}/posts/${id}`, {
-          method: 'PUT', 
-          headers: myHeaders,
-          body: JSON.stringify(data),
-          mode: 'cors',
-          cache: 'default',
-        }
-      ).then(response => response.json())
-    }
+    return axios.put(`${this.hostname}/posts/${id}`, data)
+      .then(result => result.data);
+  };
 
   updateViewsNumber(id) {
     this.context.store.dispatch(updateViewsNumberInPosts(id));
