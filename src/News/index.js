@@ -16,7 +16,7 @@ const mapStateToProps = (state) => {
     type: 'news',
     isFetching: state.articlesBySource[state.selectedSource].isFetching,
   }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(fetchPostsIfNeeded(source));
     }
   }
-}
+};
 
 const News = connect(
   mapStateToProps,

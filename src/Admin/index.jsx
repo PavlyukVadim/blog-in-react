@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { fetchBlogPosts } from './../Blog/actions';
 
 class Admin extends Component {
@@ -10,68 +11,25 @@ class Admin extends Component {
 
   APIAccess = {
     getPosts: () => {
-      let myHeaders = new Headers({
-        'Content-Type': 'json/plain',
-        'X-Custom-Header': 'ProcessThisImmediately',
-      });
-      return fetch(`${this.hostname}/posts`, {
-                method: 'GET',
-                headers: myHeaders,
-                mode: 'cors',
-                cache: 'default' 
-              }).then(response => response.json())
+      return axios.get(`${this.hostname}/posts`)
+        .then(response => response.data);
     },
     createPost: (data) => {
-      let myHeaders = new Headers({
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      });
-      return fetch(`${this.hostname}/posts`,{
-                method: 'POST', 
-                headers: myHeaders,
-                body: JSON.stringify(data),
-                mode: 'cors',
-                cache: 'default',
-              }).then(response => response.json())
+      return axios.post(`${this.hostname}/posts`, data)
+        .then(response => response.data);
     },
     getPostById: (id) => {
-      let myHeaders = new Headers({
-        'Content-Type': 'json/plain',
-        'X-Custom-Header': 'ProcessThisImmediately',
-      });
-      return fetch(`${this.hostname}/posts/${id}`,{
-                method: 'GET',
-                headers: myHeaders,
-                mode: 'cors',
-                cache: 'default',
-              }).then(response => response.json())
+      return axios.get(`${this.hostname}/posts/${id}`)
+        .then(response => response.data);
     },
     updatePostById: (id, data) => {
-      let myHeaders = new Headers({
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-      });
-      return fetch(`${this.hostname}/posts/${id}`,{
-                method: 'PUT', 
-                headers: myHeaders,
-                body: JSON.stringify(data),
-                mode: 'cors',
-                cache: 'default',
-              }).then(response => response.json())
+      return axios.put(`${this.hostname}/posts/${id}`, data)
+        .then(response => response.data);
     },
-
     deletePostById: (id) => {
-      let myHeaders = new Headers({
-        'Content-Type': 'json/plain',
-        'X-Custom-Header': 'ProcessThisImmediately',
-      });
-      return fetch(`${this.hostname}/posts/${id}`,{
-                method: 'DELETE',
-                headers: myHeaders,
-                mode: 'cors',
-                cache: 'default', })
-              .then(response => response.json())
-    }
+      return axios.delete(`${this.hostname}/posts/${id}`)
+        .then(response => response.data);
+    },
   };
 
   updateBlogPosts() {

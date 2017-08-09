@@ -12,12 +12,12 @@ class Post extends Component {
 
   getPostById = (id) => {
     return axios.get(`${this.hostname}/posts/${id}`)
-      .then(result => result.data);
+      .then(response => response.data);
   };
 
   updatePostById = (id, data) => {
     return axios.put(`${this.hostname}/posts/${id}`, data)
-      .then(result => result.data);
+      .then(response => response.data);
   };
 
   updateViewsNumber(id) {

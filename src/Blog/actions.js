@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch';
+import axios from 'axios';
 
 export const FILTER_DATE = 'FILTER_DATE';
 export const FILTER_POPULAR = 'FILTER_POPULAR';
@@ -48,23 +48,10 @@ export const receiveBlogPosts = (json) => {
 
 export const fetchBlogPosts = () => {
   return (dispatch) => {
+    const hostname = 'http://localhost:9000'; // window.location.origin;
     dispatch(requestBlogPosts());
-    let hostname = 'http://localhost:9000'; // window.location.origin;
-    let myHeaders = new Headers({
-        'Content-Type': 'json/plain',
-        'X-Custom-Header': 'ProcessThisImmediately',
-      }
-    );
-    return fetch(
-      `${hostname}/posts`, {
-        method: 'GET',
-        headers: myHeaders,
-        mode: 'cors',
-        cache: 'default'
-      },
-    )
-    .then(response => response.json())
-    .then(json => dispatch(receiveBlogPosts(json)))
+    return axios.get(`${hostname}/posts`)
+      .then(response => dispatch(receiveBlogPosts(response.data)))
   }
 }
 
