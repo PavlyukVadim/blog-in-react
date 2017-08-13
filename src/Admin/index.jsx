@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
-import { fetchBlogPosts } from './../Blog/actions';
+import PostCards from './components/PostCards';
+import { fetchBlogPosts, deletePostById } from './../Blog/actions';
 
-class Admin extends Component {
+/*class Admin extends Component {
   constructor(props) {
     super(props);
     this.hostname = 'http://localhost:9000'; //window.location.origin;
@@ -49,7 +51,33 @@ class Admin extends Component {
       </div>
     );
   }
-}
+}*/
+
+const mapStateToProps = (state) => {
+  const notEmptyPosts = state.blogPosts.posts.items.filter((item) => item !== null);
+  notEmptyPosts.forEach((post) => post.link = `posts/${post.id}`);
+  return {
+    news: notEmptyPosts,
+    type: 'blog',
+    isFetching: state.blogPosts.posts.isFetching,
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getPosts: () => {
+      dispatch(fetchBlogPosts());
+    },
+    deletePostById: () => {
+      dispatch(deletePostById());
+    },
+  }
+};
+
+const Admin = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(PostCards);
 
 export default Admin;
 

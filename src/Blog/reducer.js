@@ -1,10 +1,11 @@
+import { combineReducers } from 'redux';
 import {
-  FILTER_DATE,
-  FILTER_POPULAR,
-  FILTER_ALPHABET,
   REQUEST_BLOG_POSTS,
   RECEIVE_BLOG_POSTS,
   UPDATE_VIEWS_NUMBER,
+  FILTER_DATE,
+  FILTER_POPULAR,
+  FILTER_ALPHABET,
 } from './actions';
 
 const defaultState = {
@@ -12,44 +13,49 @@ const defaultState = {
   items: [],
 };
 
-const posts = (state = defaultState, action) => {
+const recieveBlogPosts = (state, action) => {
+  return Object.assign({}, state, {
+    items: action.posts.filter(post => post !== null),
+    isFetching: false,
+    lastUpdated: action.receivedAt,
+  });
+};
+
+const requestBlogPosts = (state, action) => {
+  return Object.assign({}, state, {
+    isFetching: true,
+  });
+};
+
+const updatePostNumberOfViews = (state, action) => {
+  const newState = Object.assign({}, state);
+  newState.posts.items.forEach((post) => {
+    if (Number(post.id) === Number(action.id)) {
+      post.views++;
+    }
+  });
+  return newState;
+};
+
+const blogPostsReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case REQUEST_BLOG_POSTS:
-      return Object.assign({}, state, {
-        isFetching: true
-      });
-    case RECEIVE_BLOG_POSTS:
-      return Object.assign({}, state, {
-        isFetching: false,
-        items: action.posts.filter(post => post !== null),
-        lastUpdated: action.receivedAt
-      });
+    case RECEIVE_BLOG_POSTS: return recieveBlogPosts(state, action);
+    case REQUEST_BLOG_POSTS: return requestBlogPosts(state, action);
+    case UPDATE_VIEWS_NUMBER: return updatePostNumberOfViews(state, action);
     default: return state;
   }
 };
 
-export const blogPosts = (state = {}, action) => {
-  switch (action.type) {
-    case RECEIVE_BLOG_POSTS:
-    case REQUEST_BLOG_POSTS:
-      return Object.assign({}, state, {
-        posts: posts(state['blogPosts'], action)
-      })
-    case UPDATE_VIEWS_NUMBER:
-      const newState = Object.assign({}, state);
-      newState.posts.items.forEach((post) => { 
-        if( Number(post.id) === Number(action.id) ) post.views++;
-      });
-      return newState
-    default: return state
-  }
-};
-
-export const visibilityFilter = (state = FILTER_DATE, action) => {
+const visibilityFilterReducer = (state = FILTER_DATE, action) => {
   switch (action.type) {
     case FILTER_DATE: return 'FILTER_DATE';
     case FILTER_POPULAR: return 'FILTER_POPULAR';
     case FILTER_ALPHABET: return 'FILTER_ALPHABET';
-    default: return state
+    default: return state;
   }
 };
+
+export const blogReducer = combineReducers({
+  posts: blogPostsReducer,
+  visibilityFilter: visibilityFilterReducer,
+});

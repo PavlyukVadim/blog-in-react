@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
@@ -20,13 +20,15 @@ import blogApp from './rootReducer';
 import './stylesheets/base/main.scss';
 
 // const loggerMiddleware = createLogger();
+/* eslint-disable no-underscore-dangle */
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+/* eslint-enable */
 
-let store = createStore(
+const store = createStore(
   blogApp,
-  applyMiddleware(
-    thunkMiddleware, // lets us dispatch() functions
-    // loggerMiddleware // neat middleware that logs actions
-  )
+  composeEnhancers(
+    applyMiddleware(thunkMiddleware),
+  ),
 );
 
 store.dispatch(fetchPostsIfNeeded('time'));

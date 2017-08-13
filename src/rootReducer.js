@@ -1,12 +1,10 @@
 import { combineReducers } from 'redux';
-import { blogPosts, visibilityFilter } from './Blog/reducer';
-import { articlesBySource, selectedSource } from './News/reducer';
+import { blogReducer } from './Blog/reducer';
+import { newsReducer } from './News/reducer';
 
 const blogApp = combineReducers({
-  visibilityFilter,
-  selectedSource,
-  articlesBySource,
-  blogPosts,
+  blog: blogReducer,
+  news: newsReducer,
 });
 
 export default blogApp;

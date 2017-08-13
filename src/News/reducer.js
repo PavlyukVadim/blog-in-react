@@ -1,3 +1,4 @@
+import { combineReducers } from 'redux';
 import {
   REQUEST_POSTS,
   RECEIVE_POSTS,
@@ -25,7 +26,7 @@ const posts = (state = defaultState, action) => {
   }
 };
 
-export const articlesBySource = (state = {}, action) => {
+const articlesBySource = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_POSTS:
     case REQUEST_POSTS:
@@ -36,9 +37,14 @@ export const articlesBySource = (state = {}, action) => {
   }
 };
 
-export const selectedSource = (state = 'time', action) => {
+const selectedSource = (state = 'time', action) => {
   switch (action.type) {
     case SELECT_SOURCE: return action.source
     default: return state
   }
 };
+
+export const newsReducer = combineReducers({
+  selectedSource,
+  articlesBySource,
+});

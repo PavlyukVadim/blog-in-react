@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-export const REQUEST_BLOG_POSTS = 'REQUEST_BLOG_POSTS';
-export const RECEIVE_BLOG_POSTS = 'RECEIVE_BLOG_POSTS';
-export const UPDATE_VIEWS_NUMBER = 'UPDATE_VIEWS_NUMBER';
 export const FILTER_DATE = 'FILTER_DATE';
 export const FILTER_POPULAR = 'FILTER_POPULAR';
 export const FILTER_ALPHABET = 'FILTER_ALPHABET';
+export const REQUEST_BLOG_POSTS = 'REQUEST_BLOG_POSTS';
+export const RECEIVE_BLOG_POSTS = 'RECEIVE_BLOG_POSTS';
+export const UPDATE_VIEWS_NUMBER = 'UPDATE_VIEWS_NUMBER';
 
 export const setDateFilter = () => {
   return {
@@ -51,6 +51,15 @@ export const fetchBlogPosts = () => {
     const hostname = 'http://localhost:9000'; // window.location.origin;
     dispatch(requestBlogPosts());
     return axios.get(`${hostname}/posts`)
+      .then(response => dispatch(receiveBlogPosts(response.data)))
+  };
+};
+
+export const deletePostById = () => {
+  return (dispatch) => {
+    const hostname = 'http://localhost:9000'; // window.location.origin;
+    // dispatch(deletePosts());
+    return axios.delete(`${hostname}/posts`)
       .then(response => dispatch(receiveBlogPosts(response.data)))
   };
 };

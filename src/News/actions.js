@@ -38,7 +38,7 @@ export const fetchPosts = (source) => {
 };
 
 const shouldFetchPosts = (state, source) => {
-  const posts = state.articlesBySource[source];
+  const posts = state.news.articlesBySource[source];
   if (!posts) {
     return true;
   } else if (posts.isFetching) {
