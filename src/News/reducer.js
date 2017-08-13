@@ -5,46 +5,41 @@ import {
   SELECT_SOURCE,
 } from './actions';
 
-const defaultState = {
-  isFetching: false,
-  items: [],
+const requestPosts = (state, action) => {
+  return Object.assign({}, state, {
+    [action.source]: {
+      items: [],
+      isFetching: true,
+    },
+  });
 };
 
-const posts = (state = defaultState, action) => {
+const receivePosts = (state, action) => {
+  return Object.assign({}, state, {
+    [action.source]: {
+      items: action.posts,
+      isFetching: false,
+      lastUpdated: action.receivedAt,
+    },
+  });
+};
+
+const articlesBySourceReducer = (state = {}, action) => {
   switch (action.type) {
-    case REQUEST_POSTS:
-      return Object.assign({}, state, {
-        isFetching: true
-      });
-    case RECEIVE_POSTS:
-      return Object.assign({}, state, {
-        isFetching: false,
-        items: action.posts,
-        lastUpdated: action.receivedAt
-      });
+    case REQUEST_POSTS: return requestPosts(state, action);
+    case RECEIVE_POSTS: return receivePosts(state, action);
     default: return state;
   }
 };
 
-const articlesBySource = (state = {}, action) => {
+const selectedSourceReducer = (state = 'time', action) => {
   switch (action.type) {
-    case RECEIVE_POSTS:
-    case REQUEST_POSTS:
-      return Object.assign({}, state, {
-        [action.source]: posts(state[action.source], action)
-      })
-    default: return state
-  }
-};
-
-const selectedSource = (state = 'time', action) => {
-  switch (action.type) {
-    case SELECT_SOURCE: return action.source
-    default: return state
+    case SELECT_SOURCE: return action.source;
+    default: return state;
   }
 };
 
 export const newsReducer = combineReducers({
-  selectedSource,
-  articlesBySource,
+  articles: articlesBySourceReducer,
+  source: selectedSourceReducer,
 });

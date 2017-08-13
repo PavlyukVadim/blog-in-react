@@ -6,22 +6,22 @@ export const SELECT_SOURCE = 'SELECT_SOURCE';
 
 export const selectSource = (source) => {
   return {
-    type: SELECT_SOURCE,
     source,
+    type: SELECT_SOURCE,
   }
 };
 
 export const requestPosts = (source) => {
   return {
-    type: REQUEST_POSTS,
     source,
+    type: REQUEST_POSTS,
   }
 };
 
 export const receivePosts = (source, json) => {
   return {
-    type: RECEIVE_POSTS,
     source,
+    type: RECEIVE_POSTS,
     posts: json.articles,
     receivedAt: Date.now(),
   }
@@ -38,12 +38,8 @@ export const fetchPosts = (source) => {
 };
 
 const shouldFetchPosts = (state, source) => {
-  const posts = state.news.articlesBySource[source];
-  if (!posts) {
-    return true;
-  } else if (posts.isFetching) {
-    return false;
-  }
+  const posts = state.news.articles[source];
+  return !posts;
 };
 
 export const fetchPostsIfNeeded = (source) => {
