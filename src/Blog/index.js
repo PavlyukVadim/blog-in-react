@@ -3,7 +3,10 @@ import BlogPage from './components/BlogPage';
 import {
   setDateFilter,
   setPopularFilter,
-  setAlphabetFilter
+  setAlphabetFilter,
+  FILTER_DATE,
+  FILTER_POPULAR,
+  FILTER_ALPHABET,
 } from './actions';
 
 const sortByDate = (a, b) => b.date - a.date;
@@ -14,15 +17,9 @@ const sortByAlphabet = (a, b) => a.title.localeCompare(b.title);
 
 const getSortedNews = (sortBy, NEWS) => {
   switch (sortBy) {
-    case 'FILTER_DATE': {
-      return [].concat(NEWS.sort(sortByDate));
-    }
-    case 'FILTER_POPULAR': {
-      return [].concat(NEWS.sort(sortByPopular));
-    }
-    case 'FILTER_ALPHABET': {
-      return [].concat(NEWS.sort(sortByAlphabet));
-    }
+    case FILTER_DATE: return [].concat(NEWS.sort(sortByDate));
+    case FILTER_POPULAR: return [].concat(NEWS.sort(sortByPopular));
+    case FILTER_ALPHABET: return [].concat(NEWS.sort(sortByAlphabet));
     default: return NEWS.sort(sortByDate);
   }
 };
@@ -31,24 +28,18 @@ const mapStateToProps = (state) => {
   const notEmptyPosts = state.blog.posts.items.filter((item) => item !== null);
   notEmptyPosts.forEach((post) => post.link = `posts/${post.id}`);
   return {
-    news: getSortedNews(state.visibilityFilter, notEmptyPosts),
+    news: getSortedNews(state.blog.visibilityFilter, notEmptyPosts),
     type: 'blog',
     isFetching: state.blog.posts.isFetching,
-  }
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setPopular: () => {
-      dispatch(setPopularFilter());
-    },
-    setDate: () => {
-      dispatch(setDateFilter());
-    },
-    setAlphabet: () => {
-      dispatch(setAlphabetFilter());
-    },
-  }
+    setPopular: () => dispatch(setPopularFilter()),
+    setDate: () => dispatch(setDateFilter()),
+    setAlphabet: () => dispatch(setAlphabetFilter()),
+  };
 };
 
 const Blog = connect(
