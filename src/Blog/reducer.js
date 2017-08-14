@@ -7,6 +7,10 @@ import {
   FILTER_POPULAR,
   FILTER_ALPHABET,
 } from './actions';
+import {
+  CREATED_POST,
+  DELETED_POST,
+} from './../Admin/actions';
 
 const defaultState = {
   isFetching: false,
@@ -37,11 +41,29 @@ const updatePostNumberOfViews = (state, action) => {
   return newState;
 };
 
+const createdPost = (state, action) => {
+  return Object.assign({}, state, {
+    items: action.posts.filter(post => post !== null),
+    isFetching: false,
+    lastUpdated: action.receivedAt,
+  });
+};
+
+const deletedPost = (state, action) => {
+  return Object.assign({}, state, {
+    items: action.posts.filter(post => post !== null),
+    isFetching: false,
+    lastUpdated: action.receivedAt,
+  });
+};
+
 const blogPostsReducer = (state = defaultState, action) => {
   switch (action.type) {
     case RECEIVE_BLOG_POSTS: return recieveBlogPosts(state, action);
     case REQUEST_BLOG_POSTS: return requestBlogPosts(state, action);
     case UPDATE_VIEWS_NUMBER: return updatePostNumberOfViews(state, action);
+    case CREATED_POST: return createdPost(state, action);
+    case DELETED_POST: return deletedPost(state, action);
     default: return state;
   }
 };

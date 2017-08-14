@@ -12,21 +12,17 @@ class PostCards extends Component {
   }
 
   componentDidMount() {
-    this.props.getPosts()
-      .then(json => this.setState({ posts: json.reverse() }))
+    this.props.getPosts();
   }
 
   deletePostById(id) {
-    this.props.deletePostById(id)
-      .then(json => this.setState({ posts: json.reverse() }))
-      .then(() => this.props.updateBlogPosts());
+    this.props.deletePostById(id);
   }
 
   render() {
-    console.log(this.props);
     let postCards = <GeneralPreloader />
-      if (this.state.posts) {
-        postCards = this.state.posts.map((post) => {
+      if (this.props.posts) {
+        postCards = this.props.posts.map((post) => {
           if (post) {
             return (
             <div
