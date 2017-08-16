@@ -6,6 +6,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
 
 import App from './components/App';
 import Blog from './Blog';
@@ -31,21 +32,21 @@ const store = createStore(
   ),
 );
 
+const history = syncHistoryWithStore(browserHistory, store)
+
 store.dispatch(fetchPostsIfNeeded('time'));
 store.dispatch(fetchBlogPostsIfNeeded());
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={ browserHistory }>
+    <Router history={history}>
       <Route path='/' component={App}>
         <IndexRoute component={Blog} />
         <Route path='posts/:postId' component={Post} />
         <Route path='news' component={News} />
-        <Route path='admin' component={Admin}>
-          <IndexRoute component={PostCards} />
-          <Route path='edit' component={PostEditor} />
-          <Route path='edit/:postId' component={PostEditor} />
-        </Route>
+        <Route path='admin' component={Admin} />
+        <Route path='edit' component={PostEditor} />
+        <Route path='edit/:postId' component={PostEditor} />
       </Route> 
     </Router>
   </Provider>,

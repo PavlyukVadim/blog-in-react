@@ -44,7 +44,7 @@ class PostCards extends Component {
         {postCards}
         <Link
           className={styles.buttonAdd}
-          to={`/admin/edit`}
+          to={`/edit`}
         >
           +
         </Link>

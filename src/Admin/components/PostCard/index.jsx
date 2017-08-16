@@ -33,7 +33,7 @@ class PostCard extends Component {
                 <Link>Delete</Link>
               </li>
               <li>
-                <Link to={`/admin/edit/${this.props.post.id}`}>Edit</Link>
+                <Link to={`/edit/${this.props.post.id}`}>Edit</Link>
               </li>
               <li>
                 <Link to={`/posts/${this.props.post.id}`}>View</Link>
