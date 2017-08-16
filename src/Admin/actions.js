@@ -5,7 +5,7 @@ export const DELETED_POST = 'DELETED_POST';
 
 const createdPost = (json) => {
   return {
-    type: DELETED_POST,
+    type: CREATED_POST,
     posts: json,
     receivedAt: Date.now(),
   };
@@ -22,7 +22,7 @@ const deletedPost = (json) => {
 export const createPost = (data) => {
   return (dispatch) => {
     const hostname = 'http://localhost:9000'; // window.location.origin;
-    return axios.post(`${this.hostname}/posts`, data)
+    return axios.post(`${hostname}/posts`, data)
       .then(response => dispatch(createdPost(response.data)));
   };
 };
