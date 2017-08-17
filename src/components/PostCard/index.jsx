@@ -19,7 +19,7 @@ class PostCard extends Component {
                 src={this.props.info.image}
                 alt="post"
               />
-              { this.props.info.views && this.props.info.date &&
+              { this.props.info.views !== undefined &&
                 <p className={styles.postStats}>
                   <span className={styles.views}>
                     <i className="fa fa-eye" />
