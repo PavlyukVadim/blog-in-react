@@ -15,22 +15,25 @@ class PostEditor extends Component {
     super(props);
     this.postId = this.props.params.postId;
     if(this.postId) {
+      this.post = PostEditor.getPostByPostId(this.props.posts, this.postId);
       this.state = {
-        ...PostEditor.getPostByPostId(this.props.posts, this.postId),
+        ...this.post,
       };
     } else {
       this.state = {};  
     }
-    this.updateMode = this.props.params.postId;
+    this.postUpdateMode = this.props.params.postId;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
   }
   
   componentWillReceiveProps(nextProps) {
-    const postId = nextProps.params.postId;
-    if(postId) {
-      this.setState({...PostEditor.getPostByPostId(nextProps.posts, postId)});
+    if(this.postUpdateMode) {
+      this.post = PostEditor.getPostByPostId(nextProps.posts, this.postId);
+      this.state = {
+        ...this.post,
+      };
     }
   }
 
@@ -64,7 +67,7 @@ class PostEditor extends Component {
       date: this.state.date,
     };
 
-    if(!this.updateMode) {
+    if(!this.postUpdateMode) {
       this.props.createPost(postParams)
         .then(() => alert('Post sent !!!'))
         .then(() => this.context.router.push('/admin'));
