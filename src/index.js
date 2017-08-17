@@ -16,7 +16,7 @@ import News from './News';
 import { fetchPostsIfNeeded } from './News/actions';
 import Admin from './Admin';
 import PostCards from './Admin/components/PostCards';
-import PostEditor from './Admin/components/PostEditor';
+import Editor from './Admin/Editor';
 import blogApp from './rootReducer';
 import './stylesheets/base/main.scss';
 
@@ -45,8 +45,8 @@ ReactDOM.render(
         <Route path='posts/:postId' component={Post} />
         <Route path='news' component={News} />
         <Route path='admin' component={Admin} />
-        <Route path='edit' component={PostEditor} />
-        <Route path='edit/:postId' component={PostEditor} />
+        <Route path='edit' component={Editor} />
+        <Route path='edit/:postId' component={Editor} />
       </Route> 
     </Router>
   </Provider>,

@@ -3,6 +3,7 @@ import axios from 'axios';
 export const REQUEST_BLOG_POSTS = 'REQUEST_BLOG_POSTS';
 export const RECEIVE_BLOG_POSTS = 'RECEIVE_BLOG_POSTS';
 export const UPDATE_VIEWS_NUMBER = 'UPDATE_VIEWS_NUMBER';
+export const UPDATED_POST = 'UPDATED_POST';
 export const FILTER_DATE = 'FILTER_DATE';
 export const FILTER_POPULAR = 'FILTER_POPULAR';
 export const FILTER_ALPHABET = 'FILTER_ALPHABET';
@@ -25,24 +26,25 @@ export const setAlphabetFilter = () => {
   };
 };
 
-export const updateViewsNumberInPosts = (id) => {
-  return {
-    type: UPDATE_VIEWS_NUMBER,
-    id: id,
-  };
-};
-
 export const requestBlogPosts = () => {
   return {
     type: REQUEST_BLOG_POSTS,
   };
 };
 
-export const receiveBlogPosts = (json) => {
+export const receiveNewBlogPosts = (json, actionType) => {
   return {
-    type: RECEIVE_BLOG_POSTS,
+    type: actionType,
     posts: json,
     receivedAt: Date.now(),
+  };
+};
+
+export const updatePostById = (id, data) => {
+  return (dispatch) => {
+    const hostname = 'http://localhost:9000'; // window.location.origin;
+    return axios.put(`${hostname}/posts/${id}`, data)
+      .then(response => dispatch(receiveNewBlogPosts(response.data, UPDATED_POST)));
   };
 };
 
@@ -51,7 +53,7 @@ export const fetchBlogPosts = () => {
     const hostname = 'http://localhost:9000'; // window.location.origin;
     dispatch(requestBlogPosts());
     return axios.get(`${hostname}/posts`)
-      .then(response => dispatch(receiveBlogPosts(response.data)))
+      .then(response => dispatch(receiveNewBlogPosts(response.data, RECEIVE_BLOG_POSTS)))
   };
 };
 

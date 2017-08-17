@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import {
   REQUEST_BLOG_POSTS,
   RECEIVE_BLOG_POSTS,
-  UPDATE_VIEWS_NUMBER,
+  UPDATED_POST,
   FILTER_DATE,
   FILTER_POPULAR,
   FILTER_ALPHABET,
@@ -17,7 +17,7 @@ const defaultState = {
   items: [],
 };
 
-const recieveBlogPosts = (state, action) => {
+const receiveNewBlogPosts = (state, action) => {
   return Object.assign({}, state, {
     items: action.posts.filter(post => post !== null),
     isFetching: false,
@@ -31,39 +31,13 @@ const requestBlogPosts = (state, action) => {
   });
 };
 
-const updatePostNumberOfViews = (state, action) => {
-  const newState = Object.assign({}, state);
-  newState.posts.items.forEach((post) => {
-    if (Number(post.id) === Number(action.id)) {
-      post.views++;
-    }
-  });
-  return newState;
-};
-
-const createdPost = (state, action) => {
-  return Object.assign({}, state, {
-    items: action.posts.filter(post => post !== null),
-    isFetching: false,
-    lastUpdated: action.receivedAt,
-  });
-};
-
-const deletedPost = (state, action) => {
-  return Object.assign({}, state, {
-    items: action.posts.filter(post => post !== null),
-    isFetching: false,
-    lastUpdated: action.receivedAt,
-  });
-};
-
 const blogPostsReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case RECEIVE_BLOG_POSTS: return recieveBlogPosts(state, action);
     case REQUEST_BLOG_POSTS: return requestBlogPosts(state, action);
-    case UPDATE_VIEWS_NUMBER: return updatePostNumberOfViews(state, action);
-    case CREATED_POST: return createdPost(state, action);
-    case DELETED_POST: return deletedPost(state, action);
+    case RECEIVE_BLOG_POSTS: return receiveNewBlogPosts(state, action);
+    case CREATED_POST: return receiveNewBlogPosts(state, action);
+    case DELETED_POST: return receiveNewBlogPosts(state, action);
+    case UPDATED_POST: return receiveNewBlogPosts(state, action);
     default: return state;
   }
 };

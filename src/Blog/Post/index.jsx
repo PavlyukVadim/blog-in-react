@@ -1,44 +1,34 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
 import PostPage from './../components/PostPage';
-import { updateViewsNumberInPosts } from '../actions';
+import {
+  fetchBlogPostsIfNeeded,
+  updatePostById,
+} from './../actions';
 
-class Post extends Component {
-  constructor(props) {
-    super(props);
-    this.hostname = 'http://localhost:9000'; // window.location.origin;
-    this.updateViewsNumber = this.updateViewsNumber.bind(this);
-  }
-
-  getPostById = (id) => {
-    return axios.get(`${this.hostname}/posts/${id}`)
-      .then(response => response.data);
+const mapStateToProps = (state) => {
+  const notEmptyPosts = state.blog.posts.items.filter((item) => item !== null);
+  notEmptyPosts.forEach((post) => post.link = `posts/${post.id}`);
+  return {
+    posts: notEmptyPosts,
+    type: 'blog',
+    isFetching: state.blog.posts.isFetching,
   };
+};
 
-  updatePostById = (id, data) => {
-    return axios.put(`${this.hostname}/posts/${id}`, data)
-      .then(response => response.data);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updatePostById: (id, data) => dispatch(updatePostById(id, data)),
   };
+};
 
-  updateViewsNumber(id) {
-    this.context.store.dispatch(updateViewsNumberInPosts(id));
-  }
+const Post = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(PostPage);
 
-  render() {
-    return (
-      <div className="row">
-        <PostPage
-          postId={this.props.params.postId} 
-          getPostById={this.getPostById}
-          updatePostById={this.updatePostById}
-          updateViewsNumber={this.updateViewsNumber}
-        />
-      </div>
-    );
-  }
-}
-
-export default Post; 
+export default Post;
 
 Post.contextTypes = {
   store: React.PropTypes.object.isRequired,

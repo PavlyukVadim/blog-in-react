@@ -4,23 +4,35 @@ import GeneralPreloader from './../../../components/GeneralPreloader';
 import styles from './PostPage.scss';
 
 class PostPage extends Component {
+  static getPostByPostId(posts, postId) {
+    let i = 0;
+    for (; i < posts.length; i++) {
+      if (Number(posts[i].id) === postId) {
+        return posts[i];
+      }
+    }
+  }
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.postId = Number(this.props.params.postId);
+    this.post = PostPage.getPostByPostId(this.props.posts, this.postId);
+    this.state = {
+      ...this.post,
+    };
   }
 
-  componentDidMount() {
-    this.props.getPostById(this.props.postId)
-      .then(json => this.setState(json));
+  componentWillReceiveProps(nextProps) {
+    this.post = PostPage.getPostByPostId(this.props.posts, this.postId);
+    this.setState({...this.post});
   }
 
   componentWillUnmount() {
+    this.post.views++;
     this.props.updatePostById(
-        this.props.postId,
-        Object.assign(this.state, {'views': this.state.views + 1})
-      )
-      .then(() => this.props.updateViewsNumber(this.props.postId));
+      this.postId,
+      this.post
+    );
   }
 
   render() {
