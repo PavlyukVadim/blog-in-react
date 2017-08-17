@@ -26,6 +26,7 @@ class PostEditor extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
+    this.handleUpdateDate = this.handleUpdateDate.bind(this);
   }
   
   componentWillReceiveProps(nextProps) {
@@ -38,23 +39,21 @@ class PostEditor extends Component {
   }
 
   handleTitleChange(e) {
-    const newState = Object.assign(
-      this.state,
-      {
-        title: e.target.value,
-      }
-    );
-    this.setState(newState);
+    this.setState({
+      title: e.target.value,
+    });
   }
 
   handleTextChange(e) {
-    const newState = Object.assign(
-      this.state,
-      {
-        describe: e.target.value,
-      }
-    );
-    this.setState(newState);
+    this.setState({
+      describe: e.target.value,
+    });
+  }
+
+  handleUpdateDate(e) {
+    this.setState((prevState) => ({
+      updateDate: !prevState.updateDate,
+    }));
   }
 
   handleSubmit(e) {
@@ -64,7 +63,7 @@ class PostEditor extends Component {
       describe: this.textInput.textContent,
       image: 'http://mustaqbilpakistan.pk/img/img.png',
       views: this.state.views,
-      date: this.state.date,
+      date: this.state.updateDate ? Date.now() : this.state.date,
     };
 
     if(!this.postUpdateMode) {
@@ -112,13 +111,18 @@ class PostEditor extends Component {
             </label>
             <i className={styles.bar} />
           </div>
-          <div className={styles.checkbox}>
-            <label>
-              <input type="checkbox" />
-              <i className={styles.helper} />
-              Update date
-            </label>
-          </div>
+          { this.postUpdateMode && 
+            <div className={styles.checkbox}>
+              <label>
+                <input
+                  type="checkbox"
+                  onChange={this.handleUpdateDate}
+                />
+                <i className={styles.helper} />
+                Update date
+              </label>
+            </div>
+          }
           <div className={styles.buttonWrapper}>
             <button
               className={styles.button}
