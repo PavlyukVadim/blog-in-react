@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { hostname } from './../config';
 
 export const REQUEST_BLOG_POSTS = 'REQUEST_BLOG_POSTS';
 export const RECEIVE_BLOG_POSTS = 'RECEIVE_BLOG_POSTS';
@@ -42,7 +43,6 @@ export const receiveNewBlogPosts = (json, actionType) => {
 
 export const updatePostById = (id, data) => {
   return (dispatch) => {
-    const hostname = 'http://localhost:9000'; // window.location.origin;
     return axios.put(`${hostname}/posts/${id}`, data)
       .then(response => dispatch(receiveNewBlogPosts(response.data, UPDATED_POST)));
   };
@@ -50,7 +50,6 @@ export const updatePostById = (id, data) => {
 
 export const fetchBlogPosts = () => {
   return (dispatch) => {
-    const hostname = 'http://localhost:9000'; // window.location.origin;
     dispatch(requestBlogPosts());
     return axios.get(`${hostname}/posts`)
       .then(response => dispatch(receiveNewBlogPosts(response.data, RECEIVE_BLOG_POSTS)))

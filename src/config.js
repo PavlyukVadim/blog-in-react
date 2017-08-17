@@ -48,4 +48,11 @@ const config = {
   },
 };
 
-export default config;
+let hostname;
+if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+  hostname = 'http://localhost:9000'; 
+} else {
+  hostname = window.location.origin; 
+}
+
+export { config, hostname };

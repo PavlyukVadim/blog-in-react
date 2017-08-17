@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import config from './../../config';
+import { config } from './../../config';
 import styles from './Header.scss';
 
 class Header extends Component {
