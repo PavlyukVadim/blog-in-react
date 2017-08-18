@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styles from './Sidebar.scss';
 
 class Sidebar extends Component {
-
   constructor(props) {
     super(props);
     this.openMenu = this.openMenu.bind(this);
@@ -23,16 +22,16 @@ class Sidebar extends Component {
     return (
       <div
         className={styles.sidebar}
-        ref={(sidebar) => {this.sideBar = sidebar;}}
+        ref={(sidebar) => { this.sideBar = sidebar; }}
       >
-        <button 
+        <button
           className={`${styles.toggleSwitch} ${styles.toggleSwitchHT}`}
-          ref={(button) => {this.buttonMenu = button;}} 
+          ref={(button) => { this.buttonMenu = button; }}
           onClick={this.openMenu}
         >
           <span>toggle menu</span>
         </button>
-          {this.props.children}
+        {this.props.children}
       </div>
     );
   }

@@ -52,7 +52,7 @@ export const fetchBlogPosts = () => {
   return (dispatch) => {
     dispatch(requestBlogPosts());
     return axios.get(`${hostname}/posts`)
-      .then(response => dispatch(receiveNewBlogPosts(response.data, RECEIVE_BLOG_POSTS)))
+      .then(response => dispatch(receiveNewBlogPosts(response.data, RECEIVE_BLOG_POSTS)));
   };
 };
 
@@ -63,15 +63,14 @@ const shouldFetchBlogPosts = (state) => {
   } else if (posts.isFetching) {
     return false;
   }
-  return true; 
+  return true;
 };
 
 export const fetchBlogPostsIfNeeded = () => {
   return (dispatch, getState) => {
     if (shouldFetchBlogPosts(getState())) {
       return dispatch(fetchBlogPosts());
-    } else {
-      return Promise.resolve()
     }
+    return Promise.resolve();
   };
 };

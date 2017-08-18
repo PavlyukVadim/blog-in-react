@@ -22,7 +22,7 @@ class Header extends Component {
       <header>
         <div className={styles.navBar}>
           <div className={styles.navBrand}>
-            <Link to='/'>
+            <Link to="/">
               Blog
             </Link>
           </div>

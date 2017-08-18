@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import PostEditor from './../components/PostEditor';
 import { createPost } from './../actions';
-import { 
+import {
   fetchBlogPostsIfNeeded,
   updatePostById,
 } from './../../Blog/actions';
@@ -10,7 +10,9 @@ import {
 
 const mapStateToProps = (state) => {
   const notEmptyPosts = state.blog.posts.items.filter((item) => item !== null);
-  notEmptyPosts.forEach((post) => post.link = `posts/${post.id}`);
+  notEmptyPosts.forEach((post) => {
+    post.link = `posts/${post.id}`;
+  });
   return {
     posts: notEmptyPosts,
   };

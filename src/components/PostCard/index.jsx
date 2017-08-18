@@ -38,7 +38,7 @@ class PostCard extends Component {
             </p>
             <p
               className={styles.shortCartDesc}
-              dangerouslySetInnerHTML={{__html: this.props.info.describe.slice(0, 70) + '...'}}
+              dangerouslySetInnerHTML={{ __html: `${this.props.info.describe.slice(0, 70)}...` }}
             />
           </div>
         </Link>

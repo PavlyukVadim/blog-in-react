@@ -5,7 +5,7 @@ import Filters from './../../../components/Filters';
 
 class BlogPage extends Component {
   render() {
-    const { 
+    const {
       news,
       type,
       isFetching,

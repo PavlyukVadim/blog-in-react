@@ -32,7 +32,7 @@ const store = createStore(
   ),
 );
 
-const history = syncHistoryWithStore(browserHistory, store)
+const history = syncHistoryWithStore(browserHistory, store);
 
 store.dispatch(fetchPostsIfNeeded('time'));
 store.dispatch(fetchBlogPostsIfNeeded());
@@ -40,15 +40,15 @@ store.dispatch(fetchBlogPostsIfNeeded());
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
-      <Route path='/' component={App}>
+      <Route path="/" component={App}>
         <IndexRoute component={Blog} />
-        <Route path='posts/:postId' component={Post} />
-        <Route path='news' component={News} />
-        <Route path='admin' component={Admin} />
-        <Route path='edit' component={Editor} />
-        <Route path='edit/:postId' component={Editor} />
-      </Route> 
+        <Route path="posts/:postId" component={Post} />
+        <Route path="news" component={News} />
+        <Route path="admin" component={Admin} />
+        <Route path="edit" component={Editor} />
+        <Route path="edit/:postId" component={Editor} />
+      </Route>
     </Router>
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

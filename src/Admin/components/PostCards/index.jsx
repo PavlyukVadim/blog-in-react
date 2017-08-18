@@ -20,35 +20,33 @@ class PostCards extends Component {
   }
 
   render() {
-    let postCards = <GeneralPreloader />
-      if (this.props.posts) {
-        postCards = this.props.posts.map((post) => {
-          if (post) {
-            return (
-            <div
-              key={post.id}
-              className="col-lg-3"
-            >
-              <PostCard
-                post={post}
-                deletePostById={this.deletePostById}
-              />
-            </div>
-            )
-          }
-        });
-      }
+    let postCards = <GeneralPreloader />;
+    if (this.props.posts) {
+      postCards = this.props.posts.map((post) => {
+        return (
+          <div
+            key={post.id}
+            className="col-lg-3"
+          >
+            <PostCard
+              post={post}
+              deletePostById={this.deletePostById}
+            />
+          </div>
+        );
+      });
+    }
 
     return (
       <div className="row">
         {postCards}
         <Link
           className={styles.buttonAdd}
-          to={`/edit`}
+          to={'/edit'}
         >
           +
         </Link>
-      </div> 
+      </div>
     );
   }
 }

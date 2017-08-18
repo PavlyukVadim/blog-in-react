@@ -5,7 +5,7 @@ export default () => {
   return (
     <div className={styles.loaderWrapper}>
       <span className={styles.loader}>
-      	<span className={styles.loaderInner} />
+        <span className={styles.loaderInner} />
       </span>
     </div>
   );

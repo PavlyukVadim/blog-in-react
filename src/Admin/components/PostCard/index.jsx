@@ -24,10 +24,12 @@ class PostCard extends Component {
               <Moment format="DD/MM/YYYY">
                 {date}
               </Moment>
-            </p> 
+            </p>
             <ul className={styles.controlPanel}>
               <li
                 className={styles.delete}
+                role="button"
+                tabIndex="0"
                 onClick={() => this.props.deletePostById(this.props.post.id)}
               >
                 <Link>Delete</Link>

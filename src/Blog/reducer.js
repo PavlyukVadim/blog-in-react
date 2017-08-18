@@ -55,3 +55,5 @@ export const blogReducer = combineReducers({
   posts: blogPostsReducer,
   visibilityFilter: visibilityFilterReducer,
 });
+
+export default blogReducer;

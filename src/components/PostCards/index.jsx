@@ -6,7 +6,7 @@ class PostCards extends Component {
   render() {
     let cards;
     if (this.props.isFetching) {
-      cards = <GeneralPreloader />
+      cards = <GeneralPreloader />;
     } else if (this.props.type) {
       cards = this.props.news.map((news) => {
         return (
@@ -15,7 +15,7 @@ class PostCards extends Component {
             info={news}
           />
         );
-      });	
+      });
     }
 
     return (

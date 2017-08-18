@@ -4,7 +4,7 @@ import NewsPage from './components/NewsPage';
 
 const mapStateToProps = (state) => {
   const newsSource = state.news.source;
-  const news = state.news.articles[newsSource].items.map((item, index) => { 
+  const news = state.news.articles[newsSource].items.map((item, index) => {
     return {
       id: index,
       title: item.title,

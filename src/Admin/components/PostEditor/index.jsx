@@ -4,23 +4,24 @@ import styles from './PostEditor.scss';
 class PostEditor extends Component {
   static getPostByPostId(posts, postId) {
     let i = 0;
-    for (; i < posts.length; i++) {
-      if (posts[i].id == postId) {
+    for (; i < posts.length; i += 1) {
+      if (Number(posts[i].id) === postId) {
         return posts[i];
       }
     }
+    return 0;
   }
 
   constructor(props) {
     super(props);
     this.postId = this.props.params.postId;
-    if(this.postId) {
-      this.post = PostEditor.getPostByPostId(this.props.posts, this.postId);
+    if (this.postId) {
+      this.post = PostEditor.getPostByPostId(this.props.posts, Number(this.postId));
       this.state = {
         ...this.post,
       };
     } else {
-      this.state = {};  
+      this.state = {};
     }
     this.postUpdateMode = this.props.params.postId;
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,9 +29,9 @@ class PostEditor extends Component {
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleUpdateDate = this.handleUpdateDate.bind(this);
   }
-  
+
   componentWillReceiveProps(nextProps) {
-    if(this.postUpdateMode) {
+    if (this.postUpdateMode) {
       this.post = PostEditor.getPostByPostId(nextProps.posts, this.postId);
       this.state = {
         ...this.post,
@@ -50,7 +51,7 @@ class PostEditor extends Component {
     });
   }
 
-  handleUpdateDate(e) {
+  handleUpdateDate() {
     this.setState((prevState) => ({
       updateDate: !prevState.updateDate,
     }));
@@ -66,11 +67,11 @@ class PostEditor extends Component {
       date: this.state.updateDate ? Date.now() : this.state.date,
     };
 
-    if(!this.postUpdateMode) {
+    if (!this.postUpdateMode) {
       this.props.createPost(postParams)
         .then(() => alert('Post sent !!!'))
         .then(() => this.context.router.push('/admin'));
-      } else {
+    } else {
       this.props.updatePostById(this.props.params.postId, postParams)
         .then(() => alert('Post sent !!!'))
         .then(() => this.context.router.push('/admin'));
@@ -83,7 +84,7 @@ class PostEditor extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className={styles.formGroup}>
             <input
-              type="text" 
+              type="text"
               required="required"
               value={this.state.title || ''}
               onChange={this.handleTitleChange}
@@ -111,10 +112,11 @@ class PostEditor extends Component {
             </label>
             <i className={styles.bar} />
           </div>
-          { this.postUpdateMode && 
+          { this.postUpdateMode &&
             <div className={styles.checkbox}>
-              <label>
+              <label htmlFor="updateDate">
                 <input
+                  id="updateDate"
                   type="checkbox"
                   onChange={this.handleUpdateDate}
                 />
@@ -129,7 +131,7 @@ class PostEditor extends Component {
               type="submit"
             >
               <span>Submit</span>
-            </button> 
+            </button>
           </div>
         </form>
       </div>
@@ -138,7 +140,7 @@ class PostEditor extends Component {
 }
 
 PostEditor.contextTypes = {
-  router: React.PropTypes.object.isRequired
-}
+  router: React.PropTypes.object.isRequired,
+};
 
 export default PostEditor;

@@ -39,7 +39,9 @@ const selectedSourceReducer = (state = 'time', action) => {
   }
 };
 
-export const newsReducer = combineReducers({
+const newsReducer = combineReducers({
   articles: articlesBySourceReducer,
   source: selectedSourceReducer,
 });
+
+export default newsReducer;

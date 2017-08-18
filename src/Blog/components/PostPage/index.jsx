@@ -6,11 +6,12 @@ import styles from './PostPage.scss';
 class PostPage extends Component {
   static getPostByPostId(posts, postId) {
     let i = 0;
-    for (; i < posts.length; i++) {
+    for (; i < posts.length; i += 1) {
       if (Number(posts[i].id) === postId) {
         return posts[i];
       }
     }
+    return 0;
   }
 
   constructor(props) {
@@ -24,23 +25,22 @@ class PostPage extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.post = PostPage.getPostByPostId(this.props.posts, this.postId);
-    this.setState({...this.post});
+    this.setState({ ...this.post });
   }
 
   componentWillUnmount() {
-    this.post.views++;
+    this.post.views += 1;
     this.props.updatePostById(
       this.postId,
-      this.post
+      this.post,
     );
   }
 
   render() {
     const date = new Date(this.state.date);
     if (!this.state.title) {
-      return <GeneralPreloader />
+      return <GeneralPreloader />;
     }
-    
     return (
       <div className={`${styles.postPage} col-lg-9`}>
         <div>

@@ -48,11 +48,14 @@ const config = {
   },
 };
 
+/* eslint-disable import/no-mutable-exports */
 let hostname;
+/* eslint-enable */
+
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
-  hostname = 'http://localhost:9000'; 
+  hostname = 'http://localhost:9000';
 } else {
-  hostname = window.location.origin; 
+  hostname = window.location.origin;
 }
 
 export { config, hostname };
